@@ -50,14 +50,14 @@ export class NavbarLink extends Component {
             cursor: pointer;
             height: 90px;
             margin: .25em 0;
-            padding: 1em 10%;
+            padding: .5em 10% 1em 10%;
             width: 100%;
           }
 
           .navbar-link:hover {
             background: ${Colors.NAVBAR_HOVER_BG};
             margin: .25em 10%;
-            padding: 1em 0;
+            padding: .5em 0 1em 0;
             width: 80%;
           }
 
@@ -66,7 +66,7 @@ export class NavbarLink extends Component {
             background: ${Colors.NAVBAR_ACTIVE_BG};
             color: white;
             margin: .25em 0;
-            padding: 1em 10%;
+            padding: .5em 10% 1em 10%;
             width: 100%;
           }
         `}</style>

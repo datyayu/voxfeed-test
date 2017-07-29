@@ -1,42 +1,48 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from "react";
+import { Navbar, MobileHeader } from "./components";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { showMenu: false };
+  }
   render() {
+    const { showMenu } = this.state;
+    const contentClasses = `main-content ${showMenu && "has-mobile-menu"}`;
+
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className="app">
+        <Navbar showOnMobile={showMenu} />
+
+        <div className={contentClasses}>
+          <MobileHeader
+            title="This is a very long title"
+            showMenu={showMenu}
+            onMenuClick={() => this.setState({ showMenu: !showMenu })}
+          />
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
 
-        <style scoped>{`
-          .App {
-            text-align: center;
+        <style jsx>{`
+          .app {
+            display: flex;
+            width: 100vw;
           }
 
-          .App-logo {
-            animation: App-logo-spin infinite 20s linear;
-            height: 80px;
+          .main-content {
+            width: 100%;
+            transition: 200ms transform ease-in-out;
+            will-change: transform;
           }
 
-          .App-header {
-            background-color: #222;
-            height: 150px;
-            padding: 20px;
-            color: white;
+          .main-content.has-mobile-menu {
+            transform: translateX(100px);
           }
 
-          .App-intro {
-            font-size: large;
-          }
-
-          @keyframes App-logo-spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+          @media screen and (min-width: 765px) {
+            .main-content.has-mobile-menu {
+              transform: translateX(0);
+            }
           }
         `}</style>
       </div>

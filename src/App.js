@@ -17,7 +17,7 @@ class App extends Component {
 
         <div className={contentClasses}>
           <MobileHeader
-            title="This is a very long title"
+            title="messages"
             showMenu={showMenu}
             onMenuClick={() => this.setState({ showMenu: !showMenu })}
           />
@@ -27,12 +27,14 @@ class App extends Component {
           .app {
             display: flex;
             width: 100vw;
+            overflow: hidden;
           }
 
           .main-content {
-            width: 100%;
+            max-width: 100vw;
             transition: 200ms transform ease-in-out;
             will-change: transform;
+            width: 100%;
           }
 
           .main-content.has-mobile-menu {

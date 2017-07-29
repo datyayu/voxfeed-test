@@ -32,12 +32,21 @@ export const MobileHeader = ({
           padding: 1em;
           position: relative;
           width: 100%;
+          max-width: 100vw;
         }
 
         .header__title {
+          box-sizing: border-box;
           font-size: 1.5em;
+          font-weight: 600;
+          padding: 0 5% 0 15%;
           margin: 0;
-          weight: bold;
+          overflow: hidden;
+          text-align: center;
+          text-overflow: ellipsis;
+          text-transform: uppercase;
+          white-space: nowrap;
+          width: 100%;
         }
 
         .header__icon {

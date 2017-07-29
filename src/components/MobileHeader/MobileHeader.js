@@ -25,6 +25,7 @@ export const MobileHeader = ({
         .header {
           align-items: center;
           background-color: ${Colors.MOBILE_HEADER_BG};
+          box-shadow: 1px 1px 2px 0px ${Colors.HEADER_BORDER};
           box-sizing: border-box;
           display: flex;
           height: 4em;

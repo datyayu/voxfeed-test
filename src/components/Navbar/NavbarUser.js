@@ -12,6 +12,8 @@ export const NavbarUser = ({ notifications = 10 }) => {
       <img
         className="navbar-user__image"
         src="/assets/user.png"
+        width="40px"
+        height="40px"
         alt="User avatar"
       />
 

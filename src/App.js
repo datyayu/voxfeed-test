@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Navbar, MobileHeader } from "./components";
+import { MessagesPage } from "./pages";
+import * as Colors from "./config/colors";
 
 class App extends Component {
   constructor(props) {
@@ -21,6 +23,8 @@ class App extends Component {
             showMenu={showMenu}
             onMenuClick={() => this.setState({ showMenu: !showMenu })}
           />
+
+          <MessagesPage />
         </div>
 
         <style jsx>{`
@@ -31,10 +35,14 @@ class App extends Component {
           }
 
           .main-content {
+            box-sizing: border-box;
+            height: 100%;
+            min-height: 100vh;
+            max-height: 100vh;
             max-width: 100vw;
             transition: 200ms transform ease-in-out;
-            will-change: transform;
             width: 100%;
+            will-change: transform;
           }
 
           .main-content.has-mobile-menu {

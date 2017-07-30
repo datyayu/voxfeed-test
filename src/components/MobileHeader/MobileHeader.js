@@ -30,10 +30,10 @@ export const MobileHeader = ({
           display: flex;
           height: 4em;
           justify-content: center;
+          max-width: 100vw;
           padding: 1em;
           position: relative;
           width: 100%;
-          max-width: 100vw;
         }
 
         .header__title {

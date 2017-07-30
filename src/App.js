@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, MobileHeader } from "./components";
 import { MessagesPage } from "./pages";
-import * as Colors from "./config/colors";
 
 class App extends Component {
   constructor(props) {
@@ -30,8 +29,8 @@ class App extends Component {
         <style jsx>{`
           .app {
             display: flex;
-            width: 100vw;
             overflow: hidden;
+            width: 100vw;
           }
 
           .main-content {

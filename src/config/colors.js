@@ -1,6 +1,6 @@
 export const MAIN_COLOR = "#00afbf";
 
-export const LIGHT_TEXT = "#777";
+export const LIGHT_TEXT = "#a9a9a9";
 export const DARK_SHADOW = "#333";
 
 export const NAVBAR_DEFAULT_BG = "#1e2121";
@@ -11,3 +11,6 @@ export const NAVBAR_ICON_DEFAULT = "#D8D8D8";
 
 export const MOBILE_HEADER_BG = "#f2f2f2";
 export const HEADER_BORDER = "#d6d6d6";
+
+export const MESSAGE_ACTIVE_BG = "#f5f9fa";
+export const MESSAGE_ACTIVE_BORDER = "#00afbf";

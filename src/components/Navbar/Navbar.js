@@ -10,8 +10,8 @@ export const Navbar = ({ showOnMobile = false }) => {
   return (
     <div className={navbarClasses}>
       <NavbarItem Icon={VooxFeedIcon} />
-      <NavbarItem Icon={DashboardIcon} text="Inicio" isActive />
-      <NavbarItem Icon={NavbarUser} text="Manny" />
+      <NavbarItem Icon={DashboardIcon} text="Inicio" />
+      <NavbarItem Icon={NavbarUser} text="Manny" isActive />
 
       <style jsx>{`
         .navbar {

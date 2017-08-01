@@ -143,10 +143,12 @@ export const MessagesPage = ({ showMenu, onMenuClick, onItemClick }) =>
 
     <style jsx>{`
       .messages-page {
-        width: 100%;
-        height: 100vh;
+        background: white;
         display: flex;
         flex-direction: column;
+        height: 100vh;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       @media screen and (min-width: 765px) {

@@ -18,3 +18,5 @@ export const MESSAGE_ACTIVE_BORDER = "#00afbf";
 export const TOTAL_CLICKS_BAR = "#00afbf";
 export const UNIQUE_CLICKS_BAR = "#008c99";
 export const PAYED_CLICKS_BAR = "#006973";
+
+export const SVG_LIGHT_CIRCLES = "#979797";

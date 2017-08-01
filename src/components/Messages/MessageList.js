@@ -9,12 +9,14 @@ export const MessageList = ({ messages = [], onItemClick }) =>
 
     <style jsx>{`
       .message-list {
+        background: white;
         box-sizing: border-box;
         height: 100%;
         margin: 0;
         overflow: auto;
         padding: 0;
         width: 100%;
+        z-index: 2;
       }
     `}</style>
   </ul>;

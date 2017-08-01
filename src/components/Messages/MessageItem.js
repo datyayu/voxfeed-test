@@ -40,6 +40,7 @@ export class MessageItem extends Component {
             cursor: pointer;
             display: flex;
             padding: 1.5em;
+            background: white;
           }
 
           .message-item:hover {

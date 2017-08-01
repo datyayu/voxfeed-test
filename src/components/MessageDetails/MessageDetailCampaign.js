@@ -28,6 +28,8 @@ export const MessageDetailCampaign = ({
         display: flex;
         padding: 2em 2em 1em 2em;
         font-size: .9em;
+        min-height: 4em;
+        box-sizing: border-box;
       }
 
       .message-detail-campaign__logo {

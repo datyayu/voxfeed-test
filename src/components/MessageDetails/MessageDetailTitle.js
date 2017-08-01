@@ -14,6 +14,7 @@ export const MessageDetailTitle = ({ title }) =>
         align-items: center;
         box-sizing: border-box;
         display: flex;
+        min-height: 3em;
         margin: 1.5em 5%;
         position: relative;
         text-align: center;
@@ -22,7 +23,7 @@ export const MessageDetailTitle = ({ title }) =>
       .message-detail-title__text {
         font-size: 1.2em;
         font-weight: normal;
-        margin: 0 1em;
+        margin: 0 .5em;
         text-transform: uppercase;
         white-space: nowrap;
       }

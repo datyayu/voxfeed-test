@@ -1,7 +1,7 @@
 import React from "react";
 import * as Colors from "../../config/colors";
 
-export const MessageDetailClickDescription = ({
+export const MessageClickDescription = ({
   clicks,
   text,
   alignLeft = false,
@@ -27,17 +27,16 @@ export const MessageDetailClickDescription = ({
       <style jsx>{`
         .click-description {
           display: flex;
+          flex-direction: column;
           left: 55px;
           position: absolute;
           top: -1px;
-          width: 40vw;
+          width: 35vw;
         }
 
         .align-left.click-description {
-          flex-direction: column;
           left: initial;
           right: 55px;
-          width: 35vw;
         }
 
         .top-on-mobile.click-description {
@@ -45,8 +44,7 @@ export const MessageDetailClickDescription = ({
           height: 3em;
           left: initial;
           right: 55px;
-          top: -3.1em
-          width: 35vw;
+          top: -3.1em;
         }
 
         .click-description__line {
@@ -54,27 +52,17 @@ export const MessageDetailClickDescription = ({
           flex-shrink: 10;
           height: 0px;
           min-width: 1%;
-          width: 50%;
-        }
-
-        .align-left .click-description__line,
-        .top-on-mobile .click-description__line {
           width: 100%;
         }
 
         .click-description__text {
-          margin-left: 0.5em;
-          margin-top: -.5em;
-          width: 70%;
-
+          text-align: right;
+          width: 100%;
         }
 
         .align-left .click-description__text,
         .top-on-mobile .click-description__text {
-          margin-left: 0;
-          margin-top: 0;
           text-align: left;
-          width: 100%;
         }
 
         .click-description__number {
@@ -84,10 +72,12 @@ export const MessageDetailClickDescription = ({
 
         @media screen and (min-width: 765px) {
           .click-description {
+            flex-direction: row;
             width: 20vw;
           }
 
           .align-left.click-description {
+            flex-direction: column;
             width: 15vw;
           }
 
@@ -98,14 +88,30 @@ export const MessageDetailClickDescription = ({
             width: 20vw;
           }
 
-          .top-on-mobile .click-description__line {
+          .click-description__line {
             width: 50%;
+            flex-grow: 10;
+          }
+
+          .align-left .click-description__line {
+            width: 100%;
+          }
+
+          .click-description__text {
+            margin-left: 0.5em;
+            margin-top: -.5em;
+            width: 70%;
+            text-align: left;
           }
 
           .top-on-mobile .click-description__text {
             margin-left: 0.5em;
             margin-top: -.5em;
-            width: 70%;
+          }
+
+          .align-left .click-description__text {
+            margin-left: 0em;
+            margin-top: 0em;
           }
         }
       `}</style>

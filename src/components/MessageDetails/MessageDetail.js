@@ -1,9 +1,10 @@
 import React from "react";
 import { MessageDetailCampaign } from "./MessageDetailCampaign";
-import { MessageDetailClicks } from "./MessageDetailClicks";
 import { MessageDetailTitle } from "./MessageDetailTitle";
+import { MessageClicks } from "./MessageClicks";
+import { MessageImpact } from "./MessageImpact";
 
-export const MessageDetail = ({ campaign, clicks }) =>
+export const MessageDetail = ({ user, campaign, clicks, retweets, answers }) =>
   <div className="message-detail">
     <MessageDetailCampaign
       campaignLogo={campaign.logo}
@@ -12,13 +13,14 @@ export const MessageDetail = ({ campaign, clicks }) =>
     />
 
     <MessageDetailTitle title="Cantidad y tipo de clicks" />
-    <MessageDetailClicks {...clicks} />
+    <MessageClicks {...clicks} />
 
     <MessageDetailTitle title="Impacto viral" />
-    {/* Viral impact */}
+    <MessageImpact user={user} retweets={retweets} answers={answers} />
 
     <style jsx>{`
       .message-detail {
+        background: white;
         display: flex;
         flex-direction: column;
         height: 100vh;

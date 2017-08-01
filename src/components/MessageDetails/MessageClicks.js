@@ -1,21 +1,21 @@
 import React from "react";
-import { MessageDetailClickDescription } from "./MessageDetailClickDescription";
+import { MessageClickDescription } from "./MessageClickDescription";
 import * as Colors from "../../config/colors";
 
-export const MessageDetailClicks = ({ total = 0, unique = 0, payed = 0 }) => {
+export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
   const uniqueHeight = `${unique / total * 200}px`;
   const payedHeight = `${payed / total * 200}px`;
 
   return (
-    <div className="message-detail-clicks">
-      <div className="message-detail-clicks__bar message-detail__total-clicks">
-        <MessageDetailClickDescription clicks={total} text="click totales" />
+    <div className="message-clicks">
+      <div className="message-clicks__bar message-clicks__total">
+        <MessageClickDescription clicks={total} text="click totales" />
 
         <div
-          className="message-detail-clicks__bar message-detail__unique-clicks"
+          className="message-clicks__bar message-clicks__unique"
           style={{ height: uniqueHeight }}
         >
-          <MessageDetailClickDescription
+          <MessageClickDescription
             clicks={unique}
             text="click únicos"
             topOnMobile
@@ -23,10 +23,10 @@ export const MessageDetailClicks = ({ total = 0, unique = 0, payed = 0 }) => {
         </div>
 
         <div
-          className="message-detail-clicks__bar message-detail__payed-clicks"
+          className="message-clicks__bar message-clicks__payed"
           style={{ height: payedHeight }}
         >
-          <MessageDetailClickDescription
+          <MessageClickDescription
             clicks={payed}
             text="click pagados"
             alignLeft
@@ -35,11 +35,12 @@ export const MessageDetailClicks = ({ total = 0, unique = 0, payed = 0 }) => {
       </div>
 
       <style jsx>{`
-      .message-detail-clicks {
-        width: 100%;
+      .message-clicks {
+        max-width: 100%;
+        box-sizing: border-box;
       }
 
-      .message-detail-clicks__bar {
+      .message-clicks__bar {
         bottom: 0;
         left: 0;
         position: absolute;
@@ -48,20 +49,21 @@ export const MessageDetailClicks = ({ total = 0, unique = 0, payed = 0 }) => {
         will-change: transform;
       }
 
-      .message-detail__total-clicks {
+      .message-clicks__total {
         animation: grow 1s ease-in-out;
         background: ${Colors.TOTAL_CLICKS_BAR};
         height: 200px;
         margin: 0 auto;
         position: relative;
+        box-sizing: border-box;
       }
 
-      .message-detail__unique-clicks {
+      .message-clicks__unique {
         background: ${Colors.UNIQUE_CLICKS_BAR};
         animation: grow 1.15s ease-in-out;
       }
 
-      .message-detail__payed-clicks {
+      .message-clicks__payed {
         background: ${Colors.PAYED_CLICKS_BAR};
         animation: grow 1.25s ease-in-out;
       }

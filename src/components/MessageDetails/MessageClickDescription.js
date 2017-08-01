@@ -89,8 +89,8 @@ export const MessageClickDescription = ({
           }
 
           .click-description__line {
-            width: 50%;
             flex-grow: 10;
+            width: 50%;
           }
 
           .align-left .click-description__line {
@@ -100,8 +100,8 @@ export const MessageClickDescription = ({
           .click-description__text {
             margin-left: 0.5em;
             margin-top: -.5em;
-            width: 70%;
             text-align: left;
+            width: 70%;
           }
 
           .top-on-mobile .click-description__text {

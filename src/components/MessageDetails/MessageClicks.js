@@ -36,8 +36,8 @@ export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
 
       <style jsx>{`
       .message-clicks {
-        max-width: 100%;
         box-sizing: border-box;
+        max-width: 100%;
       }
 
       .message-clicks__bar {
@@ -52,20 +52,20 @@ export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
       .message-clicks__total {
         animation: grow 1s ease-in-out;
         background: ${Colors.TOTAL_CLICKS_BAR};
+        box-sizing: border-box;
         height: 200px;
         margin: 0 auto;
         position: relative;
-        box-sizing: border-box;
       }
 
       .message-clicks__unique {
-        background: ${Colors.UNIQUE_CLICKS_BAR};
         animation: grow 1.15s ease-in-out;
+        background: ${Colors.UNIQUE_CLICKS_BAR};
       }
 
       .message-clicks__payed {
-        background: ${Colors.PAYED_CLICKS_BAR};
         animation: grow 1.25s ease-in-out;
+        background: ${Colors.PAYED_CLICKS_BAR};
       }
 
       @keyframes grow {

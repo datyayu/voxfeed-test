@@ -22,8 +22,8 @@ export const MessageImpactPinLine = ({ className, lineClassName }) =>
       }
 
       .impact-pin-line__line {
-        width: 2px;
         height: 4em;
+        width: 2px;
       }
 
       .impact-pin-line__circle {

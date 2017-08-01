@@ -41,7 +41,6 @@ class App extends Component {
             display: flex;
             height: 100%;
             min-height: 100vh;
-            max-height: 100vh;
             max-width: 100vw;
             transition: 200ms transform ease-in-out;
             width: 100%;

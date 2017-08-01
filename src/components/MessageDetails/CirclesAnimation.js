@@ -64,8 +64,8 @@ export const CirclesAnimation = ({ className }) =>
 
     <style jsx>{`
       .circles-animation {
-        min-width: 765px;
         margin-left: 50%;
+        min-width: 765px;
         transform: translateX(-50%);
       }
 

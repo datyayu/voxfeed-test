@@ -39,62 +39,62 @@ export const MessageImpact = ({ user, retweets, answers }) =>
       }
 
       .message-impact__image {
-        position: absolute;
-        top: 3em;
-        border: 2px solid ${Colors.MAIN_COLOR};
-        box-shadow: 0px 29px 36px -20px #333;
-        border-radius: 50%;
-        left: 0;
-        margin-left: 50%;
-        z-index: 1;
-        will-change: transform, opacity;
         animation: fade-in 1s ease-in-out;
         animation-fill-mode: forwards;
+        border: 2px solid ${Colors.MAIN_COLOR};
+        border-radius: 50%;
+        box-shadow: 0px 29px 36px -20px #333;
+        left: 0;
+        margin-left: 50%;
+        position: absolute;
+        top: 3em;
+        will-change: transform, opacity;
+        z-index: 1;
       }
 
       .central-pin,
       .small-pin,
       .big-pin {
-        position: absolute;
         animation: fade-in 1s ease-in-out;
         animation-fill-mode: forwards;
         opacity: 0;
+        position: absolute;
       }
 
       .central-pin {
-        position: absolute;
-        top: -1em;
-        right: 0;
-        width: 50%;
-        transform: translateX(-50%);
         animation-delay: .5s;
+        position: absolute;
+        right: 0;
+        top: -1em;
+        transform: translateX(-50%);
+        width: 50%;
       }
 
       .small-pin {
-        top: 1em;
-        right: 0;
-        width: 100%;
-        transform: translateX(-50%) translateX(2.5em);
         animation-delay: 1s;
+        right: 0;
+        top: 1em;
+        transform: translateX(-50%) translateX(2.5em);
+        width: 100%;
       }
 
       .big-pin {
-        top: -1em;
-        right: 0;
-        width: 100%;
-        transform: translateX(-50%) translateX(2.5em);
         animation-delay: 1.5s;
+        right: 0;
+        top: -1em;
+        transform: translateX(-50%) translateX(2.5em);
+        width: 100%;
       }
 
       @keyframes fade-in {
         from {
-          transform: translateX(-50%) translateY(-1em);
           opacity: 0;
+          transform: translateX(-50%) translateY(-1em);
         }
 
         to {
-          transform: translateX(-50%) translateY(0);
           opacity: 1;
+          transform: translateX(-50%) translateY(0);
         }
       }
     `}</style>

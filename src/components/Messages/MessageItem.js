@@ -36,11 +36,11 @@ export class MessageItem extends Component {
 
         <style jsx>{`
           .message-item {
+            background: white;
             border-bottom: 1px solid ${Colors.HEADER_BORDER};
             cursor: pointer;
             display: flex;
             padding: 1.5em;
-            background: white;
           }
 
           .message-item:hover {

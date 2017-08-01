@@ -20,7 +20,7 @@ export const MessageInfo = ({ date, username, campaignName }) =>
       }
 
       .message-info__text {
-        padding: 0 .75em;
+        padding: 0 .5em;
       }
     `}</style>
   </div>;

@@ -8,28 +8,30 @@ export class MessageItem extends Component {
     const {
       content,
       username,
-      campaignName,
+      campaign,
       avatar,
       date,
       isActive = false,
-      read = false
+      read = false,
+      onClick
     } = this.props;
 
     const itemClasses = `message-item ${isActive && "is-active"}`;
 
     return (
-      <li className={itemClasses}>
+      <li className={itemClasses} onClick={onClick}>
         <MessageAvatar
-          username={username}
           avatar={avatar}
+          campaign={campaign}
           read={read || isActive}
+          username={username}
         />
 
         <MessageContent
+          campaignName={campaign.name}
           content={content}
-          username={username}
-          campaignName={campaignName}
           date={date}
+          username={username}
         />
 
         <style jsx>{`
@@ -37,7 +39,7 @@ export class MessageItem extends Component {
             border-bottom: 1px solid ${Colors.HEADER_BORDER};
             cursor: pointer;
             display: flex;
-            padding: 1.5em 2em;
+            padding: 1.5em;
           }
 
           .message-item:hover {
@@ -47,6 +49,12 @@ export class MessageItem extends Component {
           .message-item.is-active {
             background-color: ${Colors.MESSAGE_ACTIVE_BG};
             border-right: 4px solid ${Colors.MESSAGE_ACTIVE_BORDER};
+          }
+
+          @media screen and (min-width: 765px) {
+            .message-item {
+              padding: 2em;
+            }
           }
         `}</style>
       </li>

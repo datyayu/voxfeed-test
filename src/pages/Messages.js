@@ -1,5 +1,5 @@
 import React from "react";
-import { Search, MessageList } from "../components";
+import { Search, MessageList, MobileHeader } from "../components";
 import * as Colors from "../config/colors";
 
 const messages = [
@@ -7,7 +7,11 @@ const messages = [
     content:
       "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
     username: "Squalo",
-    campaignName: "Squalo LifeStyle",
+    campaign: {
+      brand: "Squalo",
+      name: "Squalo Lifestyle",
+      logo: "/assets/logo.png"
+    },
     avatar: "/assets/user.png",
     date: "19 Oct 2014",
     isActive: false,
@@ -17,7 +21,11 @@ const messages = [
     content:
       "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
     username: "Squalo",
-    campaignName: "Squalo LifeStyle",
+    campaign: {
+      brand: "Squalo",
+      name: "Squalo Lifestyle",
+      logo: "/assets/logo.png"
+    },
     avatar: "/assets/user.png",
     date: "19 Oct 2014",
     isActive: false,
@@ -27,7 +35,11 @@ const messages = [
     content:
       "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
     username: "Squalo",
-    campaignName: "Squalo LifeStyle",
+    campaign: {
+      brand: "Squalo",
+      name: "Squalo Lifestyle",
+      logo: "/assets/logo.png"
+    },
     avatar: "/assets/user.png",
     date: "19 Oct 2014",
     isActive: true,
@@ -37,7 +49,81 @@ const messages = [
     content:
       "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
     username: "Squalo",
-    campaignName: "Squalo LifeStyle",
+    campaign: {
+      brand: "Squalo",
+      name: "Squalo Lifestyle",
+      logo: "/assets/logo.png"
+    },
+    avatar: "/assets/user.png",
+    date: "19 Oct 2014",
+    isActive: false,
+    read: false
+  },
+  {
+    content:
+      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
+    username: "Squalo",
+    campaign: {
+      brand: "Squalo",
+      name: "Squalo Lifestyle",
+      logo: "/assets/logo.png"
+    },
+    avatar: "/assets/user.png",
+    date: "19 Oct 2014",
+    isActive: false,
+    read: false
+  },
+  {
+    content:
+      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
+    username: "Squalo",
+    campaign: {
+      brand: "Telcel",
+      name: "Telcel Lifestyle",
+      logo: "/assets/logo_telcel.png"
+    },
+    avatar: "/assets/user.png",
+    date: "19 Oct 2014",
+    isActive: false,
+    read: false
+  },
+  {
+    content:
+      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
+    username: "Squalo",
+    campaign: {
+      brand: "Squalo",
+      name: "Squalo Lifestyle",
+      logo: "/assets/logo.png"
+    },
+    avatar: "/assets/user.png",
+    date: "19 Oct 2014",
+    isActive: false,
+    read: false
+  },
+  {
+    content:
+      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
+    username: "Squalo",
+    campaign: {
+      brand: "Squalo",
+      name: "Squalo Lifestyle",
+      logo: "/assets/logo.png"
+    },
+    avatar: "/assets/user.png",
+    date: "19 Oct 2014",
+    isActive: false,
+    read: false
+  },
+  {
+    content:
+      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
+    username: "Squalo",
+    campaign: {
+      brand: "Squalo",
+      name: "Squalo Lifestyle",
+      logo: "/assets/logo.png"
+    },
     avatar: "/assets/user.png",
     date: "19 Oct 2014",
     isActive: false,
@@ -45,18 +131,29 @@ const messages = [
   }
 ];
 
-export const MessagesPage = () =>
+export const MessagesPage = ({ showMenu, onMenuClick, onItemClick }) =>
   <div className="messages-page">
+    <MobileHeader
+      title="messages"
+      showMenu={showMenu}
+      onButtonClick={onMenuClick}
+    />
     <Search />
-    <MessageList messages={messages} />
+    <MessageList messages={messages} onItemClick={onItemClick} />
 
     <style jsx>{`
       .messages-page {
-        width: 50%;
-        border-right: 1px solid ${Colors.HEADER_BORDER};
+        width: 100%;
         height: 100vh;
         display: flex;
         flex-direction: column;
+      }
+
+      @media screen and (min-width: 765px) {
+        .messages-page {
+          border-right: 1px solid ${Colors.HEADER_BORDER};
+          width: 50%;
+        }
       }
     `}</style>
   </div>;

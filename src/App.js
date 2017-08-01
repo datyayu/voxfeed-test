@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import { Navbar, MobileHeader } from "./components";
-import { MessagesPage } from "./pages";
+import { Navbar } from "./components";
+import { MessagesPage, MessageDetailPage } from "./pages";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { showMenu: false };
+    this.state = { showMenu: false, showDetail: true };
   }
   render() {
-    const { showMenu } = this.state;
+    const { showMenu, showDetail } = this.state;
     const contentClasses = `main-content ${showMenu && "has-mobile-menu"}`;
 
     return (
@@ -17,13 +17,16 @@ class App extends Component {
         <Navbar showOnMobile={showMenu} />
 
         <div className={contentClasses}>
-          <MobileHeader
-            title="messages"
+          <MessagesPage
             showMenu={showMenu}
             onMenuClick={() => this.setState({ showMenu: !showMenu })}
+            onItemClick={() =>
+              this.setState({ showMenu: false, showDetail: true })}
           />
-
-          <MessagesPage />
+          <MessageDetailPage
+            show={showDetail}
+            onClose={() => this.setState({ showDetail: false })}
+          />
         </div>
 
         <style jsx>{`
@@ -35,6 +38,7 @@ class App extends Component {
 
           .main-content {
             box-sizing: border-box;
+            display: flex;
             height: 100%;
             min-height: 100vh;
             max-height: 100vh;

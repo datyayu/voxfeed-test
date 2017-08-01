@@ -7,7 +7,7 @@ export const Search = () =>
     <SearchIcon className="search__icon" />
     <input type="text" className="search__input" placeholder="Buscar..." />
 
-    <style jsx>{`
+    <style jsx global>{`
       .search {
         position: relative;
       }

@@ -7,12 +7,14 @@ import { MobileHeaderBackButton } from "./MobileHeaderBackButton";
 export const MobileHeader = ({
   title = "",
   hasBack = false,
-  onMenuClick,
-  onBackClick
+  onButtonClick
 }) => {
   const icon = hasBack
-    ? <MobileHeaderBackButton className="header__icon" onClick={onBackClick} />
-    : <MenuIcon className="header__icon" onClick={onMenuClick} />;
+    ? <MobileHeaderBackButton
+        className="header__icon"
+        onClick={onButtonClick}
+      />
+    : <MenuIcon className="header__icon" onClick={onButtonClick} />;
 
   return (
     <div className="header">
@@ -40,7 +42,7 @@ export const MobileHeader = ({
           box-sizing: border-box;
           font-size: 1.5em;
           font-weight: 600;
-          padding: 0 5% 0 15%;
+          padding: 0 5% 0 3em;
           margin: 0;
           overflow: hidden;
           text-align: center;

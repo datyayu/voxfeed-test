@@ -22,15 +22,10 @@ export class MessageText extends Component {
       if (this.isHashtag(word)) {
         const url = `https://twitter.com/hashtag/${word.slice(1)}`;
         return (
-          <span>
-            <a
-              href={url}
-              target="_blank"
-              key={index}
-              className="message-text__link"
-            >
-              {word}{" "}
-            </a>
+          <span key={index}>
+            <a href={url} target="_blank" className="message-text__link">
+              {word}
+            </a>{" "}
           </span>
         );
       }
@@ -39,16 +34,10 @@ export class MessageText extends Component {
       const wordAsUrl = word.replace(/(^https?):\/\/|^/i, "http://");
       if (this.isUrl(wordAsUrl)) {
         return (
-          <span>
-            <a
-              href={wordAsUrl}
-              target="_blank"
-              key={index}
-              className="message-text__link"
-            >
+          <span key={index}>
+            <a href={wordAsUrl} target="_blank" className="message-text__link">
               {word}
-            </a>
-            &nbsp;
+            </a>{" "}
           </span>
         );
       }
@@ -56,7 +45,7 @@ export class MessageText extends Component {
       // Parse normal text
       return (
         <span key={index}>
-          {word} &nbsp;
+          {word}{" "}
         </span>
       );
     });

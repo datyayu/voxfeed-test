@@ -1,9 +1,11 @@
 import React from "react";
 import { MessageItem } from "./MessageItem";
 
-export const MessageList = ({ messages = [] }) =>
+export const MessageList = ({ messages = [], onItemClick }) =>
   <ul className="message-list">
-    {messages.map((message, idx) => <MessageItem key={idx} {...message} />)}
+    {messages.map((message, idx) =>
+      <MessageItem key={idx} {...message} onClick={onItemClick} />
+    )}
 
     <style jsx>{`
       .message-list {

@@ -14,11 +14,11 @@ export const MobileHeaderBackButton = ({ className = "", onClick }) =>
       .back-button__arrow {
         font-size: 3em;
         font-weight: 200;
-        margin-top: -.25em;
+        margin-top: -.30em;
       }
 
       .back-button__text {
-        margin-top: -.5em;
+        margin-top: -.65em;
       }
     `}</style>
   </div>;

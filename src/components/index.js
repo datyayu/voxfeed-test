@@ -1,5 +1,6 @@
 export * from "./Icons";
+export * from "./MessageDetails";
 export * from "./Messages";
 export * from "./MobileHeader";
-export * from "./Shared";
 export * from "./Navbar";
+export * from "./Shared";

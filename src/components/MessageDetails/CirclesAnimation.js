@@ -67,6 +67,7 @@ export const CirclesAnimation = ({ className }) =>
         margin-left: 50%;
         min-width: 765px;
         transform: translateX(-50%);
+        will-change: transform;
       }
 
       .blue-circle {

@@ -15,6 +15,7 @@ export const MessageImpact = ({ user, retweets, replies }) =>
       height="50px"
     />
 
+    <CirclesAnimation />
     <MessageImpactCentralPin
       number={user.followers}
       text="Followers"
@@ -30,7 +31,6 @@ export const MessageImpact = ({ user, retweets, replies }) =>
       text="Usuarios via Retweets"
       className="big-pin"
     />
-    <CirclesAnimation />
 
     <style jsx global>{`
       .message-impact {

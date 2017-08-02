@@ -62,6 +62,9 @@ export class MessageText extends Component {
         {parsedContent}
 
         <style jsx global>{`
+          .message-text {
+            word-break: break-word;
+          }
           .message-text__link {
             color: ${Colors.MAIN_COLOR};
             text-decoration: none;

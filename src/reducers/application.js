@@ -1,8 +1,9 @@
-import { ApplicationActions } from "../actions";
+import { ApplicationActions, MessagesActions } from "../actions";
 
 const initialState = {
   showNav: false,
-  showDetail: false
+  showDetail: false,
+  user: 1
 };
 
 export function applicationReducer(state = initialState, action) {
@@ -15,6 +16,13 @@ export function applicationReducer(state = initialState, action) {
         ...state,
         showNav: false,
         showDetail: !state.showDetail
+      };
+
+    case MessagesActions.SET_ACTIVE_MESSAGE:
+      return {
+        ...state,
+        showNav: false,
+        showDetail: true
       };
 
     default:

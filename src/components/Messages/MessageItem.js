@@ -4,34 +4,37 @@ import { MessageAvatar } from "./MessageAvatar";
 import * as Colors from "../../config/colors";
 
 export class MessageItem extends Component {
+  handleClick = () => {
+    const { onClick, message } = this.props;
+    onClick(message.id);
+  };
+
   render() {
     const {
       content,
-      username,
+      user,
       campaign,
-      avatar,
       date,
       isActive = false,
-      read = false,
-      onClick
-    } = this.props;
+      read = false
+    } = this.props.message;
 
     const itemClasses = `message-item ${isActive && "is-active"}`;
 
     return (
-      <li className={itemClasses} onClick={onClick}>
+      <li className={itemClasses} onClick={this.handleClick}>
         <MessageAvatar
-          avatar={avatar}
+          avatar={user.avatarUrl}
           campaign={campaign}
           read={read || isActive}
-          username={username}
+          username={user.name}
         />
 
         <MessageContent
-          campaignName={campaign.name}
+          campaignName={campaign.groupAd}
           content={content}
           date={date}
-          username={username}
+          username={user.name}
         />
 
         <style jsx>{`

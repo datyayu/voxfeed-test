@@ -44,6 +44,7 @@ export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
         bottom: 0;
         left: 0;
         position: absolute;
+        transition: height 300ms ease-in-out;
         transform-origin: bottom;
         width: 50px;
         will-change: transform;

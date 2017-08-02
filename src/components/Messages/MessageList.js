@@ -4,7 +4,7 @@ import { MessageItem } from "./MessageItem";
 export const MessageList = ({ messages = [], onItemClick }) =>
   <ul className="message-list">
     {messages.map((message, idx) =>
-      <MessageItem key={idx} {...message} onClick={onItemClick} />
+      <MessageItem key={idx} message={message} onClick={onItemClick} />
     )}
 
     <style jsx>{`

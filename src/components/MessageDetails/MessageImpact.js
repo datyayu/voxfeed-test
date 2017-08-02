@@ -5,7 +5,7 @@ import { MessageImpactSmallPin } from "./MessageImpactSmallPin";
 import { MessageImpactBigPin } from "./MessageImpactBigPin";
 import * as Colors from "../../config/colors";
 
-export const MessageImpact = ({ user, retweets, answers }) =>
+export const MessageImpact = ({ user, retweets, replies }) =>
   <div className="message-impact">
     <img
       className="message-impact__image"
@@ -21,7 +21,7 @@ export const MessageImpact = ({ user, retweets, answers }) =>
       className="central-pin"
     />
     <MessageImpactSmallPin
-      number={answers}
+      number={replies}
       text="Respuestas"
       className="small-pin"
     />

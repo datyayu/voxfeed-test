@@ -4,33 +4,43 @@ import { MessageDetailTitle } from "./MessageDetailTitle";
 import { MessageClicks } from "./MessageClicks";
 import { MessageImpact } from "./MessageImpact";
 
-export const MessageDetail = ({ user, campaign, clicks, retweets, answers }) =>
-  <div className="message-detail">
-    <MessageDetailCampaign
-      campaignLogo={campaign.logo}
-      campaignName={campaign.name}
-      campaignBrand={campaign.brand}
-    />
+export const MessageDetail = ({ message }) => {
+  if (!message) return null;
 
-    <MessageDetailTitle title="Cantidad y tipo de clicks" />
-    <MessageClicks {...clicks} />
+  const { user, campaign, results } = message;
+  return (
+    <div className="message-detail">
+      <MessageDetailCampaign
+        campaignLogo={campaign.logo}
+        campaignName={campaign.groupAd}
+        campaignBrand={campaign.brand}
+      />
 
-    <MessageDetailTitle title="Impacto viral" />
-    <MessageImpact user={user} retweets={retweets} answers={answers} />
+      <MessageDetailTitle title="Cantidad y tipo de clicks" />
+      <MessageClicks {...results.clicks} />
 
-    <style jsx>{`
-      .message-detail {
-        background: white;
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-        width: 100%;
-      }
+      <MessageDetailTitle title="Impacto viral" />
+      <MessageImpact
+        user={user}
+        retweets={results.retweets}
+        replies={results.replys}
+      />
 
-      @media screen and (min-width: 765px) {
-        .message-detail-page {
-          width: 50%;
+      <style jsx>{`
+        .message-detail {
+          background: white;
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+          width: 100%;
         }
-      }
-    `}</style>
-  </div>;
+
+        @media screen and (min-width: 765px) {
+          .message-detail-page {
+            width: 50%;
+          }
+        }
+      `}</style>
+    </div>
+  );
+};

@@ -1,37 +1,17 @@
 import React from "react";
+import { connect } from "react-redux";
+import { ApplicationActions } from "../actions";
+import { ApplicationSelectors, MessagesSelectors } from "../selectors";
 import { MobileHeader, MessageDetail } from "../components";
 import * as Colors from "../config/colors";
 
-const campaign = {
-  brand: "Squalo",
-  name: "Squalo Lifestyle",
-  logo: "/assets/logo.png"
-};
-const clicks = {
-  total: 267,
-  unique: 207,
-  payed: 198
-};
-const user = {
-  avatarUrl: "/assets/user.png",
-  name: "Manuelmhtr",
-  followers: 478,
-  joinedDate: "08/12/15"
-};
-
-export const MessageDetailPage = ({ show, onClose }) => {
+const MessageDetailPageComponent = ({ message, show, onClose }) => {
   const pageClasses = `message-detail-page ${show && "is-active"}`;
-
+  const title = message ? message.campaign.name : "Now loading";
   return (
     <div className={pageClasses}>
-      <MobileHeader title={campaign.name} hasBack onButtonClick={onClose} />
-      <MessageDetail
-        campaign={campaign}
-        clicks={clicks}
-        user={user}
-        retweets={2138}
-        answers={478}
-      />
+      <MobileHeader hasBack onButtonClick={onClose} title={title} />
+      <MessageDetail message={message} />
 
       <style jsx>{`
         .message-detail-page {
@@ -69,3 +49,18 @@ export const MessageDetailPage = ({ show, onClose }) => {
     </div>
   );
 };
+
+function mapStateToProps(state) {
+  return {
+    message: MessagesSelectors.getActiveMessage(state),
+    show: ApplicationSelectors.isDetailActive(state)
+  };
+}
+
+const mapDispatchToProps = {
+  onClose: ApplicationActions.toggleDetail
+};
+
+export const MessageDetailPage = connect(mapStateToProps, mapDispatchToProps)(
+  MessageDetailPageComponent
+);

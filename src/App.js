@@ -1,28 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { ApplicationActions } from "./actions";
-import { ApplicationSelectors } from "./selectors";
+import { ApplicationSelectors, MessagesSelectors } from "./selectors";
 import { Navbar } from "./components";
 import { MessagesPage, MessageDetailPage } from "./pages";
 
 const App = ({
+  user,
   showNav = false,
   showDetail = false,
-  toggleNav,
+  notifications,
   toggleDetail
 }) => {
   const contentClasses = `main-content ${showNav && "has-mobile-menu"}`;
 
   return (
     <div className="app">
-      <Navbar showOnMobile={showNav} />
+      <Navbar
+        notifications={notifications}
+        showOnMobile={showNav}
+        user={user}
+      />
 
       <div className={contentClasses}>
-        <MessagesPage
-          showNav={showNav}
-          onMenuClick={toggleNav}
-          onItemClick={toggleDetail}
-        />
+        <MessagesPage />
+
         <MessageDetailPage show={showDetail} onClose={toggleDetail} />
       </div>
 
@@ -60,8 +62,10 @@ const App = ({
 
 function mapStateToProps(state) {
   return {
+    notifications: MessagesSelectors.getNotificationCount(state),
     showNav: ApplicationSelectors.isSidenavActive(state),
-    showDetail: ApplicationSelectors.isDetailActive(state)
+    showDetail: ApplicationSelectors.isDetailActive(state),
+    user: ApplicationSelectors.getCurrentUser(state)
   };
 }
 

@@ -5,13 +5,19 @@ import { DashboardIcon, VooxFeedIcon } from "../Icons";
 import { NavbarItem } from "./NavbarItem";
 import { NavbarUser } from "./NavbarUser";
 
-export const Navbar = ({ showOnMobile = false }) => {
+export const Navbar = ({ user, notifications, showOnMobile = false }) => {
   const navbarClasses = `navbar ${showOnMobile && "show-mobile"}`;
+
   return (
     <div className={navbarClasses}>
       <NavbarItem Icon={VooxFeedIcon} />
       <NavbarItem Icon={DashboardIcon} text="Inicio" />
-      <NavbarItem Icon={NavbarUser} text="Manny" isActive />
+      <NavbarItem
+        Icon={NavbarUser}
+        text={user.name}
+        props={{ user, notifications }}
+        isActive
+      />
 
       <style jsx>{`
         .navbar {

@@ -1,7 +1,7 @@
 import React from "react";
 import * as Colors from "../../config/colors";
 
-export const NavbarUser = ({ notifications = 10 }) => {
+export const NavbarUser = ({ user, notifications = 10 }) => {
   return (
     <div className="navbar-user">
       {notifications > 0 &&
@@ -11,10 +11,10 @@ export const NavbarUser = ({ notifications = 10 }) => {
 
       <img
         className="navbar-user__image"
-        src="/assets/user.png"
+        src={user.avatarUrl}
         width="40px"
         height="40px"
-        alt="User avatar"
+        alt={user.name}
       />
 
       <style jsx>{`
@@ -36,9 +36,12 @@ export const NavbarUser = ({ notifications = 10 }) => {
           border-radius: 40%;
           color: white;
           font-size: .75em;
+          height: 15px;
+          min-width: 15px;
           padding: .2em .3em;
           position: absolute;
           right: .5em;
+          text-align: center;
           top: 0em;
         }
       `}</style>

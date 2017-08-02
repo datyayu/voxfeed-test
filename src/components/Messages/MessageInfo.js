@@ -5,8 +5,10 @@ export const MessageInfo = ({ date, username, campaignName }) =>
   <div className="message-info">
     <span className="message-info__text">{username}</span>
     ·
-    <span className="message-info__text">{campaignName}</span>
-    ·
+    {campaignName &&
+      <span>
+        <span className="message-info__text"> {campaignName}</span> ·
+      </span>}
     <span className="message-info__text">{date}</span>
     <style jsx>{`
       .message-info {

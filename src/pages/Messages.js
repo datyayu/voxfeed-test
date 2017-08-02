@@ -1,145 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Search, MessageList, MobileHeader } from "../components";
+import { ApplicationSelectors, MessagesSelectors } from "../selectors";
+import { ApplicationActions, MessagesActions } from "../actions";
 import * as Colors from "../config/colors";
 
-const messages = [
-  {
-    content:
-      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
-    username: "Squalo",
-    campaign: {
-      brand: "Squalo",
-      name: "Squalo Lifestyle",
-      logo: "/assets/logo.png"
-    },
-    avatar: "/assets/user.png",
-    date: "19 Oct 2014",
-    isActive: false,
-    read: false
-  },
-  {
-    content:
-      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
-    username: "Squalo",
-    campaign: {
-      brand: "Squalo",
-      name: "Squalo Lifestyle",
-      logo: "/assets/logo.png"
-    },
-    avatar: "/assets/user.png",
-    date: "19 Oct 2014",
-    isActive: false,
-    read: true
-  },
-  {
-    content:
-      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
-    username: "Squalo",
-    campaign: {
-      brand: "Squalo",
-      name: "Squalo Lifestyle",
-      logo: "/assets/logo.png"
-    },
-    avatar: "/assets/user.png",
-    date: "19 Oct 2014",
-    isActive: true,
-    read: false
-  },
-  {
-    content:
-      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
-    username: "Squalo",
-    campaign: {
-      brand: "Squalo",
-      name: "Squalo Lifestyle",
-      logo: "/assets/logo.png"
-    },
-    avatar: "/assets/user.png",
-    date: "19 Oct 2014",
-    isActive: false,
-    read: false
-  },
-  {
-    content:
-      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
-    username: "Squalo",
-    campaign: {
-      brand: "Squalo",
-      name: "Squalo Lifestyle",
-      logo: "/assets/logo.png"
-    },
-    avatar: "/assets/user.png",
-    date: "19 Oct 2014",
-    isActive: false,
-    read: false
-  },
-  {
-    content:
-      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
-    username: "Squalo",
-    campaign: {
-      brand: "Telcel",
-      name: "Telcel Lifestyle",
-      logo: "/assets/logo_telcel.png"
-    },
-    avatar: "/assets/user.png",
-    date: "19 Oct 2014",
-    isActive: false,
-    read: false
-  },
-  {
-    content:
-      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
-    username: "Squalo",
-    campaign: {
-      brand: "Squalo",
-      name: "Squalo Lifestyle",
-      logo: "/assets/logo.png"
-    },
-    avatar: "/assets/user.png",
-    date: "19 Oct 2014",
-    isActive: false,
-    read: false
-  },
-  {
-    content:
-      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
-    username: "Squalo",
-    campaign: {
-      brand: "Squalo",
-      name: "Squalo Lifestyle",
-      logo: "/assets/logo.png"
-    },
-    avatar: "/assets/user.png",
-    date: "19 Oct 2014",
-    isActive: false,
-    read: false
-  },
-  {
-    content:
-      "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
-    username: "Squalo",
-    campaign: {
-      brand: "Squalo",
-      name: "Squalo Lifestyle",
-      logo: "/assets/logo.png"
-    },
-    avatar: "/assets/user.png",
-    date: "19 Oct 2014",
-    isActive: false,
-    read: false
-  }
-];
-
-export const MessagesPage = ({ showMenu, onMenuClick, onItemClick }) =>
+const MessagesPageComponent = ({
+  messages,
+  showMenu,
+  searchQuery,
+  toggleNav,
+  setActiveMessage,
+  onQueryChange
+}) =>
   <div className="messages-page">
     <MobileHeader
       title="messages"
       showMenu={showMenu}
-      onButtonClick={onMenuClick}
+      onButtonClick={toggleNav}
     />
-    <Search />
-    <MessageList messages={messages} onItemClick={onItemClick} />
+
+    <Search value={searchQuery} onChange={onQueryChange} />
+    <MessageList messages={messages} onItemClick={setActiveMessage} />
 
     <style jsx>{`
       .messages-page {
@@ -159,3 +41,21 @@ export const MessagesPage = ({ showMenu, onMenuClick, onItemClick }) =>
       }
     `}</style>
   </div>;
+
+function mapStateToProps(state) {
+  return {
+    showMenu: ApplicationSelectors.isSidenavActive(state),
+    messages: MessagesSelectors.getMessages(state),
+    searchQuery: MessagesSelectors.getSearchQuery(state)
+  };
+}
+
+const mapDispatchToProps = {
+  toggleNav: ApplicationActions.toggleSidenav,
+  setActiveMessage: MessagesActions.setActiveMessage,
+  onQueryChange: MessagesActions.changeSearchQuery
+};
+
+export const MessagesPage = connect(mapStateToProps, mapDispatchToProps)(
+  MessagesPageComponent
+);

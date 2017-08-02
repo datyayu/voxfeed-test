@@ -6,4 +6,9 @@ export class ApplicationSelectors {
   static isDetailActive(state) {
     return state.application.showDetail;
   }
+
+  static getCurrentUser(state) {
+    const userId = state.application.user;
+    return state.users.users[userId];
+  }
 }

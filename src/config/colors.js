@@ -1,5 +1,6 @@
 export const MAIN_COLOR = "#00afbf";
 
+export const DARK_TEXT = "#333";
 export const LIGHT_TEXT = "#a9a9a9";
 export const DARK_SHADOW = "#333";
 

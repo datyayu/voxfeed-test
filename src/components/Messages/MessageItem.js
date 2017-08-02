@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import { MessageContent } from "./MessageContent";
 import { MessageAvatar } from "./MessageAvatar";
 import * as Colors from "../../config/colors";
@@ -11,6 +12,7 @@ export class MessageItem extends Component {
 
   render() {
     const {
+      id,
       content,
       user,
       campaign,
@@ -19,10 +21,8 @@ export class MessageItem extends Component {
       read = false
     } = this.props.message;
 
-    const itemClasses = `message-item ${isActive && "is-active"}`;
-
     return (
-      <li className={itemClasses} onClick={this.handleClick}>
+      <NavLink to={`/messages/${id}`} className="message-item">
         <MessageAvatar
           avatar={user.avatarUrl}
           campaign={campaign}
@@ -37,20 +37,23 @@ export class MessageItem extends Component {
           username={user.name}
         />
 
-        <style jsx>{`
+        <style jsx global>{`
           .message-item {
             background: white;
             border-bottom: 1px solid ${Colors.HEADER_BORDER};
+            border-right: 4px solid white;
             cursor: pointer;
             display: flex;
             padding: 1.5em;
+            text-decoration: none;
           }
 
           .message-item:hover {
             background-color: ${Colors.MESSAGE_ACTIVE_BG};
+            border-right: 4px solid ${Colors.MESSAGE_ACTIVE_BG};
           }
 
-          .message-item.is-active {
+          .message-item.active {
             background-color: ${Colors.MESSAGE_ACTIVE_BG};
             border-right: 4px solid ${Colors.MESSAGE_ACTIVE_BORDER};
           }
@@ -61,7 +64,7 @@ export class MessageItem extends Component {
             }
           }
         `}</style>
-      </li>
+      </NavLink>
     );
   }
 }

@@ -4,8 +4,8 @@ export class ApplicationActions {
     return { type: ApplicationActions.TOGGLE_SIDENAV };
   }
 
-  static TOGGLE_DETAIL = "application/TOGGLE_DETAIL";
-  static toggleDetail() {
-    return { type: ApplicationActions.TOGGLE_DETAIL };
+  static CLOSE_DETAIL = "application/CLOSE_DETAIL";
+  static closeDetail() {
+    return { type: ApplicationActions.CLOSE_DETAIL };
   }
 }

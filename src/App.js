@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { ApplicationActions } from "./actions";
 import { ApplicationSelectors, MessagesSelectors } from "./selectors";
 import { Navbar } from "./components";
-import { MessagesPage, MessageDetailPage } from "./pages";
+import { Routes } from "./routes";
 
 const App = ({
   user,
@@ -11,54 +11,20 @@ const App = ({
   showDetail = false,
   notifications,
   toggleDetail
-}) => {
-  const contentClasses = `main-content ${showNav && "has-mobile-menu"}`;
+}) =>
+  <div className="app">
+    <Navbar notifications={notifications} showOnMobile={showNav} user={user} />
 
-  return (
-    <div className="app">
-      <Navbar
-        notifications={notifications}
-        showOnMobile={showNav}
-        user={user}
-      />
+    <Routes showNav={showNav} />
 
-      <div className={contentClasses}>
-        <MessagesPage />
-
-        <MessageDetailPage show={showDetail} onClose={toggleDetail} />
-      </div>
-
-      <style jsx>{`
-        .app {
-          display: flex;
-          overflow: hidden;
-          width: 100vw;
-        }
-
-        .main-content {
-          box-sizing: border-box;
-          display: flex;
-          height: 100%;
-          min-height: 100vh;
-          max-width: 100vw;
-          transition: 200ms transform ease-in-out;
-          width: 100%;
-          will-change: transform;
-        }
-
-        .main-content.has-mobile-menu {
-          transform: translateX(100px);
-        }
-
-        @media screen and (min-width: 765px) {
-          .main-content.has-mobile-menu {
-            transform: translateX(0);
-          }
-        }
-      `}</style>
-    </div>
-  );
-};
+    <style jsx>{`
+      .app {
+        display: flex;
+        overflow: hidden;
+        width: 100vw;
+      }
+    `}</style>
+  </div>;
 
 function mapStateToProps(state) {
   return {

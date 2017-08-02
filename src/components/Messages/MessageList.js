@@ -2,7 +2,7 @@ import React from "react";
 import { MessageItem } from "./MessageItem";
 
 export const MessageList = ({ messages = [], onItemClick }) =>
-  <ul className="message-list">
+  <div className="message-list">
     {messages.map((message, idx) =>
       <MessageItem key={idx} message={message} onClick={onItemClick} />
     )}
@@ -19,4 +19,4 @@ export const MessageList = ({ messages = [], onItemClick }) =>
         z-index: 2;
       }
     `}</style>
-  </ul>;
+  </div>;

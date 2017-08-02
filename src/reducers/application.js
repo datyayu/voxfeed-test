@@ -1,4 +1,6 @@
 import { ApplicationActions, MessagesActions } from "../actions";
+import { LOCATION_CHANGE } from "react-router-redux";
+import { matchPath } from "react-router";
 
 const initialState = {
   showNav: false,
@@ -11,7 +13,7 @@ export function applicationReducer(state = initialState, action) {
     case ApplicationActions.TOGGLE_SIDENAV:
       return { ...state, showNav: !state.showNav };
 
-    case ApplicationActions.TOGGLE_DETAIL:
+    case ApplicationActions.CLOSE_DETAIL:
       return {
         ...state,
         showNav: false,
@@ -24,6 +26,16 @@ export function applicationReducer(state = initialState, action) {
         showNav: false,
         showDetail: true
       };
+
+    case LOCATION_CHANGE:
+      const location = action.payload;
+      const match = matchPath(location.pathname, {
+        path: "/messages/:id"
+      });
+
+      return match
+        ? { ...state, showDetail: true, showNav: false }
+        : { ...state, showDetail: false, showNav: false };
 
     default:
       return state;

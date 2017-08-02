@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { ApplicationActions } from "../actions";
+import { push } from "react-router-redux";
 import { ApplicationSelectors, MessagesSelectors } from "../selectors";
 import { MobileHeader, MessageDetail } from "../components";
 import * as Colors from "../config/colors";
@@ -58,7 +58,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  onClose: ApplicationActions.toggleDetail
+  onClose: () => push("/messages")
 };
 
 export const MessageDetailPage = connect(mapStateToProps, mapDispatchToProps)(

@@ -1,7 +1,12 @@
-import { createStore } from "redux";
-import { reducer } from "./reducers";
+import { createStore, applyMiddleware, compose } from "redux";
+import { routerMiddleware } from "react-router-redux";
 
-export const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+import { reducer } from "./reducers";
+import { history } from "./routes";
+
+const routingMiddleware = routerMiddleware(history);
+const middleware = applyMiddleware(routingMiddleware);
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+export const store = createStore(reducer, composeEnhancers(middleware));

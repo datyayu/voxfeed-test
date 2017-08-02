@@ -31,7 +31,7 @@ export const MessageAvatar = ({ avatar, username, read, campaign }) =>
         background-color: ${Colors.MAIN_COLOR};
         border-radius: 50%;
         height: 9px;
-        left: .5em;
+        left: -1em;
         position: absolute;
         top: .75em;
         width: 9px;
@@ -53,6 +53,10 @@ export const MessageAvatar = ({ avatar, username, read, campaign }) =>
       @media screen and (min-width: 765px) {
         .message-avatar {
           padding-left: 2em;
+        }
+
+        .message-avatar__badge {
+          left: .5em;
         }
       }
     `}</style>

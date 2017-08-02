@@ -1,4 +1,6 @@
 import { ApplicationActions, MessagesActions } from "../actions";
+import { LOCATION_CHANGE } from "react-router-redux";
+import { matchPath } from "react-router";
 
 const initialState = {
   messages: {
@@ -95,18 +97,23 @@ export function messagesReducer(state = initialState, action) {
         searchQuery: action.payload
       };
 
-    case ApplicationActions.TOGGLE_DETAIL:
+    case ApplicationActions.CLOSE_DETAIL:
       return {
         ...state,
         active: -1
       };
 
-    case MessagesActions.SET_ACTIVE_MESSAGE:
-      const messageId = action.payload;
+    case LOCATION_CHANGE:
+      const location = action.payload;
+      const match = matchPath(location.pathname, {
+        path: "/messages/:id"
+      });
 
-      if (messageId === state.active) {
-        return { ...state, active: -1 };
+      if (!match) {
+        return state;
       }
+
+      const messageId = match.params.id;
 
       return {
         ...state,

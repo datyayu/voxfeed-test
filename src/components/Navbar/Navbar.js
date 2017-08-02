@@ -10,12 +10,13 @@ export const Navbar = ({ user, notifications, showOnMobile = false }) => {
 
   return (
     <div className={navbarClasses}>
-      <NavbarItem Icon={VooxFeedIcon} />
-      <NavbarItem Icon={DashboardIcon} text="Inicio" />
+      <VooxFeedIcon />
+      <NavbarItem exact Icon={DashboardIcon} text="Inicio" linkTo="/" />
       <NavbarItem
         Icon={NavbarUser}
         text={user.name}
         props={{ user, notifications }}
+        linkTo="/messages"
         isActive
       />
 

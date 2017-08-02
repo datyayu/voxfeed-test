@@ -24,6 +24,7 @@ export const NavbarUser = ({ user, notifications = 10 }) => {
         }
 
         .navbar-user__image {
+          border: 2px solid ${Colors.NAVBAR_DEFAULT_BG};
           border-radius: 50%;
           display: block;
           margin: 0 auto .5em auto;
@@ -32,7 +33,7 @@ export const NavbarUser = ({ user, notifications = 10 }) => {
 
         .navbar-user__badge {
           background-color: ${Colors.NAVBAR_ACTIVE_BG};
-          border: 1px solid white;
+          border: 2px solid white;
           border-radius: 40%;
           color: white;
           font-size: .75em;

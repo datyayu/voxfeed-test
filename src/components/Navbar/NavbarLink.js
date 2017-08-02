@@ -1,56 +1,27 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import * as Colors from "../../config/colors";
 
 export class NavbarLink extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isHovered: false };
-  }
-
-  handleMouseEnter = () => {
-    this.setState({ isHovered: true });
-  };
-
-  handleMouseLeave = () => {
-    this.setState({ isHovered: false });
-  };
-
-  mapPropsToChildren = child => {
-    const { isActive } = this.props;
-    const { isHovered } = this.state;
-
-    if (!child.type || child.type === "span") {
-      return child;
-    }
-
-    return React.cloneElement(child, {
-      isActive: isActive || isHovered
-    });
-  };
-
   render = () => {
-    const { isActive, children } = this.props;
-    const linkClasses = `navbar-link ${isActive && "is-active"}`;
-    const childrenComponents = React.Children.map(
-      children,
-      this.mapPropsToChildren
-    );
+    const { to, exact, text, children } = this.props;
 
     return (
-      <div
-        className={linkClasses}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-      >
-        {childrenComponents}
+      <NavLink to={to} exact={exact} className="navbar-link">
+        {children}
+        <span className="navbar-link__label">
+          {text}
+        </span>
 
-        <style jsx>{`
+        <style jsx global>{`
           .navbar-link {
             box-sizing: border-box;
             cursor: pointer;
+            display: block;
             height: 90px;
             margin: .25em 0;
             padding: .5em 10% 1em 10%;
+            text-decoration: none;
             width: 100%;
           }
 
@@ -61,16 +32,40 @@ export class NavbarLink extends Component {
             width: 80%;
           }
 
-          .navbar-link.is-active,
-          .navbar-link.is-active:hover {
+          .navbar-link.active,
+          .navbar-link.active:hover {
             background: ${Colors.NAVBAR_ACTIVE_BG};
             color: white;
             margin: .25em 0;
             padding: .5em 10% 1em 10%;
             width: 100%;
           }
+
+          .navbar-link__label {
+            color: ${Colors.NAVBAR_ICON_DEFAULT};
+            display: block;
+            overflow: hidden;
+            text-align: center;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+          }
+
+          .navbar-link:hover .navbar-link__label,
+          .navbar-link.active .navbar-link__label {
+            color: ${Colors.NAVBAR_ICON_ACTIVE};
+          }
+
+          .navbar-link:hover svg g,
+          .navbar-link.active svg g {
+            fill: ${Colors.NAVBAR_ICON_ACTIVE};
+          }
+
+          .navbar-link.active img {
+            border: 2px solid ${Colors.NAVBAR_ICON_ACTIVE};
+          }
         `}</style>
-      </div>
+      </NavLink>
     );
   };
 }

@@ -1,4 +1,11 @@
+/**
+ * Global-level application actions.
+ */
 export class ApplicationActions {
+  /******************
+   * APP NAVIGATION *
+   ******************/
+
   static TOGGLE_SIDENAV = "application/TOGGLE_SIDENAV";
   static toggleSidenav() {
     return { type: ApplicationActions.TOGGLE_SIDENAV };
@@ -8,6 +15,10 @@ export class ApplicationActions {
   static closeDetail() {
     return { type: ApplicationActions.CLOSE_DETAIL };
   }
+
+  /******************
+   * DATA FETCHING  *
+   ******************/
 
   static FETCH_DATA = "application/FETCH_DATA";
   static fetchData() {

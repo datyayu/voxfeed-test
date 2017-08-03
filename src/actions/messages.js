@@ -1,4 +1,8 @@
 export class MessagesActions {
+  /******************
+   *     SEARCH     *
+   ******************/
+
   static CHANGE_SEARCH_QUERY = "messages/CHANGE_SEARCH_QUERY";
   static changeSearchQuery(value) {
     return {
@@ -6,6 +10,10 @@ export class MessagesActions {
       payload: value
     };
   }
+
+  /******************
+   *   NAVIGATION   *
+   ******************/
 
   static SET_ACTIVE_MESSAGE = "messages/SET_ACTIVE_MESSAGE";
   static setActiveMessage(id) {

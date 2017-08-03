@@ -2,38 +2,58 @@ import { ApplicationActions, MessagesActions } from "../actions";
 import { LOCATION_CHANGE } from "react-router-redux";
 import { matchPath } from "react-router";
 
+/****************
+ *     STATE    *
+ ****************/
+
 const initialState = {
   showNav: false,
   showDetail: false,
   user: null
 };
 
+/****************
+ *    REDUCER   *
+ ****************/
+
 export function applicationReducer(state = initialState, action) {
   switch (action.type) {
-    case ApplicationActions.TOGGLE_SIDENAV:
-      return { ...state, showNav: !state.showNav };
+    /******************
+     * APP NAVIGATION *
+     ******************/
 
+    // Close the detail panel.
     case ApplicationActions.CLOSE_DETAIL:
       return {
         ...state,
         showNav: false,
-        showDetail: !state.showDetail
+        showDetail: false
       };
 
+    // Turn on/off the sidenav visibility on mobile
+    case ApplicationActions.TOGGLE_SIDENAV:
+      return { ...state, showNav: !state.showNav };
+
+    /******************
+     * DATA FETCHING  *
+     ******************/
+
+    // Set the fetched user as the active user.
     case ApplicationActions.DATA_FETCH_SUCCESS:
       const data = action.payload;
       const user = data.user;
+
       return {
+        ...state,
         user: user._id
       };
 
-    case MessagesActions.SET_ACTIVE_MESSAGE:
-      return {
-        ...state,
-        showNav: false,
-        showDetail: true
-      };
+    /******************
+     *    LOCATION    *
+     ******************/
 
+    // If the path is "/messages/:id", then show the detail panel.
+    // Otherwise, close the panel and the side nav.
     case LOCATION_CHANGE:
       const location = action.payload;
       const match = matchPath(location.pathname, {
@@ -43,6 +63,18 @@ export function applicationReducer(state = initialState, action) {
       return match
         ? { ...state, showDetail: true, showNav: false }
         : { ...state, showDetail: false, showNav: false };
+
+    /******************
+     *    MESSAGES    *
+     ******************/
+
+    // Set the currently active message.
+    case MessagesActions.SET_ACTIVE_MESSAGE:
+      return {
+        ...state,
+        showNav: false,
+        showDetail: true
+      };
 
     default:
       return state;

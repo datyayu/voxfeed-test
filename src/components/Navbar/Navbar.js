@@ -12,13 +12,14 @@ export const Navbar = ({ user, notifications, showOnMobile = false }) => {
     <div className={navbarClasses}>
       <VooxFeedIcon />
       <NavbarItem exact Icon={DashboardIcon} text="Inicio" linkTo="/" />
-      <NavbarItem
-        Icon={NavbarUser}
-        text={user.name}
-        props={{ user, notifications }}
-        linkTo="/messages"
-        isActive
-      />
+      {user &&
+        <NavbarItem
+          Icon={NavbarUser}
+          text={user.name}
+          props={{ user, notifications }}
+          linkTo="/messages"
+          isActive
+        />}
 
       <style jsx>{`
         .navbar {

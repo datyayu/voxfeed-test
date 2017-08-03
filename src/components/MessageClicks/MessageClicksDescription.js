@@ -1,7 +1,7 @@
 import React from "react";
 import * as Colors from "../../config/colors";
 
-export const MessageClickDescription = ({
+export const MessageClicksDescription = ({
   clicks,
   text,
   alignLeft = false,

@@ -1,30 +1,43 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { ApplicationActions } from "./actions";
 import { ApplicationSelectors, MessagesSelectors } from "./selectors";
 import { Navbar } from "./components";
 import { Routes } from "./routes";
 
-const App = ({
-  user,
-  showNav = false,
-  showDetail = false,
-  notifications,
-  toggleDetail
-}) =>
-  <div className="app">
-    <Navbar notifications={notifications} showOnMobile={showNav} user={user} />
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchData();
 
-    <Routes showNav={showNav} />
+    fetch("/assets/data.json")
+      .then(response => response.json())
+      .then(data => this.props.dataFetchSuccess(data))
+      .catch(error => this.props.dataFetchFail(error));
+  }
 
-    <style jsx>{`
-      .app {
-        display: flex;
-        overflow: hidden;
-        width: 100vw;
-      }
-    `}</style>
-  </div>;
+  render() {
+    const { user, showNav, notifications } = this.props;
+    return (
+      <div className="app">
+        <Navbar
+          notifications={notifications}
+          showOnMobile={showNav}
+          user={user}
+        />
+
+        <Routes showNav={showNav} />
+
+        <style jsx>{`
+          .app {
+            display: flex;
+            overflow: hidden;
+            width: 100vw;
+          }
+        `}</style>
+      </div>
+    );
+  }
+}
 
 function mapStateToProps(state) {
   return {
@@ -36,8 +49,9 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  toggleNav: ApplicationActions.toggleSidenav,
-  toggleDetail: ApplicationActions.toggleDetail
+  fetchData: ApplicationActions.fetchData,
+  dataFetchSuccess: ApplicationActions.dataFetchSuccess,
+  dataFetchFail: ApplicationActions.dataFetchFail
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

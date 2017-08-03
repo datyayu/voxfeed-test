@@ -8,11 +8,16 @@ export class MessagesSelectors {
       const activeMessage = state.messages.active;
       const readMessages = state.messages.read;
 
+      if (!message) {
+        return null;
+      }
+
       return {
         id: messageId,
         campaign: CampaignsSelectors.getCampaign(state, message.campaignId),
         content: message.content,
         date: message.date,
+        image: message.image,
         isActive: messageId === activeMessage,
         read: readMessages.some(entryId => entryId === messageId),
         results: message.results,
@@ -49,8 +54,9 @@ export class MessagesSelectors {
       .map(this.getMessageData(state))
       .filter(message => {
         return (
-          message.content.toLowerCase().includes(filterQuery) ||
-          message.user.name.toLowerCase().includes(filterQuery)
+          message &&
+          (message.content.toLowerCase().includes(filterQuery) ||
+            message.user.name.toLowerCase().includes(filterQuery))
         );
       });
 

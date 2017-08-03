@@ -6,6 +6,7 @@
       "campaignId": 1,
       "date": "19 Oct 2014",
       "content": "En #MiCombiSqualo, haría las mejores fiestas del mundo. ¿Te quieres ganar la tuya? voxfd.co/ZK69Es",
+      "image": "/assets/msg_img.png",
       "results": {
         "clicks": {
           "total": 256,
@@ -28,12 +29,12 @@
       "content": "Just #coding stuff... http://instagram.com/p/uENgADtakT/",
       "results": {
         "clicks": {
-          "total": 256,
-          "unique": 200,
-          "payed": 145
+          "total": 1256,
+          "unique": 660,
+          "payed": 235
         },
-        "retweets": 2138,
-        "replys": 478
+        "retweets": 2134,
+        "replys": 412
       },
       "entitites": {
         "hashtags": ["#coding"],
@@ -48,12 +49,12 @@
       "content": "Quiero tener #MiCombiSqualo sólo para ponerle unos dados de peluche en el retrovisor. ¿No quieres una igual? vxfd.co/1zhZIZp",
       "results": {
         "clicks": {
-          "total": 256,
-          "unique": 200,
-          "payed": 145
+          "total": 20156,
+          "unique": 2300,
+          "payed": 1325
         },
-        "retweets": 2138,
-        "replys": 478
+        "retweets": 5438,
+        "replys": 2318
       },
       "entities": {
         "hashtags": ["#MiCombiSqualo"],
@@ -63,17 +64,18 @@
     {
       "_id": 3,
       "userId": 1,
-      "campaignId": 1,
+      "campaignId": 2,
       "date": "18 Oct 2014",
       "content": "Ni modo que no empieze la escuela con un smartphone chipocludo!! #TelcelBackToSchool vxfd.co/wef32",
+      "image": "/assets/img-telcel.png",
       "results": {
         "clicks": {
-          "total": 256,
-          "unique": 200,
-          "payed": 145
+          "total": 2546,
+          "unique": 2020,
+          "payed": 1425
         },
         "retweets": 2138,
-        "replys": 478
+        "replys": 4782
       },
       "entities": {
         "hashtags": ["#TelcelBackToSchool"],
@@ -86,9 +88,15 @@
       "brand": "Squalo",
       "groupAd": "Squalo Lifestyle",
       "logo": "/assets/logo.png"
+    },
+    "2": {
+      "brand": "Telcel",
+      "groupAd": "Telcel promo",
+      "logo": "/assets/logo_telcel.png"
     }
   },
   "user": {
+    "_id": 1,
     "avatarUrl": "/assets/user.png",
     "name": "Manuelmhtr",
     "followers": 478,

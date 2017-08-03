@@ -1,8 +1,8 @@
 import React from "react";
 import { MessageDetailCampaign } from "./MessageDetailCampaign";
 import { MessageDetailTitle } from "./MessageDetailTitle";
-import { MessageClicks } from "./MessageClicks";
-import { MessageImpact } from "./MessageImpact";
+import { MessageClicks } from "../MessageClicks";
+import { MessageImpact } from "../MessageImpact";
 
 export const MessageDetail = ({ message }) => {
   if (!message) return null;

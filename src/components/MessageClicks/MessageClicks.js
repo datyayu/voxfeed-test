@@ -1,5 +1,5 @@
 import React from "react";
-import { MessageClickDescription } from "./MessageClickDescription";
+import { MessageClicksDescription } from "./MessageClicksDescription";
 import * as Colors from "../../config/colors";
 
 export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
@@ -9,13 +9,13 @@ export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
   return (
     <div className="message-clicks">
       <div className="message-clicks__bar message-clicks__total">
-        <MessageClickDescription clicks={total} text="click totales" />
+        <MessageClicksDescription clicks={total} text="click totales" />
 
         <div
           className="message-clicks__bar message-clicks__unique"
           style={{ height: uniqueHeight }}
         >
-          <MessageClickDescription
+          <MessageClicksDescription
             clicks={unique}
             text="click únicos"
             topOnMobile
@@ -26,7 +26,7 @@ export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
           className="message-clicks__bar message-clicks__payed"
           style={{ height: payedHeight }}
         >
-          <MessageClickDescription
+          <MessageClicksDescription
             clicks={payed}
             text="click pagados"
             alignLeft

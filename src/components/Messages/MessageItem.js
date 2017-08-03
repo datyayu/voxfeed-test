@@ -11,31 +11,18 @@ export class MessageItem extends Component {
   };
 
   render() {
-    const {
-      id,
-      content,
-      user,
-      campaign,
-      date,
-      isActive = false,
-      read = false
-    } = this.props.message;
+    const { message } = this.props;
 
     return (
-      <NavLink to={`/messages/${id}`} className="message-item">
+      <NavLink to={`/messages/${message.id}`} className="message-item">
         <MessageAvatar
-          avatar={user.avatarUrl}
-          campaign={campaign}
-          read={read || isActive}
-          username={user.name}
+          avatar={message.user && message.user.avatarUrl}
+          campaign={message.campaign}
+          read={message.read || message.isActive}
+          username={message.user && message.user.name}
         />
 
-        <MessageContent
-          campaignName={campaign.groupAd}
-          content={content}
-          date={date}
-          username={user.name}
-        />
+        <MessageContent message={message} />
 
         <style jsx global>{`
           .message-item {
@@ -44,7 +31,7 @@ export class MessageItem extends Component {
             border-right: 4px solid white;
             cursor: pointer;
             display: flex;
-            padding: 1.5em;
+            padding: 0.5em 1.5em 1.5em;
             text-decoration: none;
           }
 
@@ -60,7 +47,7 @@ export class MessageItem extends Component {
 
           @media screen and (min-width: 765px) {
             .message-item {
-              padding: 2em;
+              padding: 1.5em 2em 2em;
             }
           }
         `}</style>

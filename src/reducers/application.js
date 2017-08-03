@@ -5,7 +5,7 @@ import { matchPath } from "react-router";
 const initialState = {
   showNav: false,
   showDetail: false,
-  user: 1
+  user: null
 };
 
 export function applicationReducer(state = initialState, action) {
@@ -18,6 +18,13 @@ export function applicationReducer(state = initialState, action) {
         ...state,
         showNav: false,
         showDetail: !state.showDetail
+      };
+
+    case ApplicationActions.DATA_FETCH_SUCCESS:
+      const data = action.payload;
+      const user = data.user;
+      return {
+        user: user._id
       };
 
     case MessagesActions.SET_ACTIVE_MESSAGE:

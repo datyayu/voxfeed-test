@@ -11,6 +11,16 @@ export class ApplicationActions {
     return { type: ApplicationActions.TOGGLE_SIDENAV };
   }
 
+  static OPEN_SIDENAV = "application/OPEN_SIDENAV";
+  static openSidenav() {
+    return { type: ApplicationActions.OPEN_SIDENAV };
+  }
+
+  static CLOSE_SIDENAV = "application/CLOSE_SIDENAV";
+  static closeSidenav() {
+    return { type: ApplicationActions.CLOSE_SIDENAV };
+  }
+
   static CLOSE_DETAIL = "application/CLOSE_DETAIL";
   static closeDetail() {
     return { type: ApplicationActions.CLOSE_DETAIL };

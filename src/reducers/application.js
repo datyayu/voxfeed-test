@@ -34,6 +34,14 @@ export function applicationReducer(state = initialState, action) {
     case ApplicationActions.TOGGLE_SIDENAV:
       return { ...state, showNav: !state.showNav };
 
+    // Force the sidenav to be visible
+    case ApplicationActions.OPEN_SIDENAV:
+      return { ...state, showNav: true };
+
+    // Force the sidenav's visibility to be off
+    case ApplicationActions.CLOSE_SIDENAV:
+      return { ...state, showNav: false };
+
     /******************
      * DATA FETCHING  *
      ******************/

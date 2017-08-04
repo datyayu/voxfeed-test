@@ -10,6 +10,18 @@ test("toggleSidenav() should create a TOGGLE_SIDENAV action", () => {
   expect(action.type).toBe(ApplicationActions.TOGGLE_SIDENAV);
 });
 
+test("openSidenav() should create a OPEN_SIDENAV action", () => {
+  const action = ApplicationActions.openSidenav();
+
+  expect(action.type).toBe(ApplicationActions.OPEN_SIDENAV);
+});
+
+test("closeSidenav() should create a CLOSE_SIDENAV action", () => {
+  const action = ApplicationActions.closeSidenav();
+
+  expect(action.type).toBe(ApplicationActions.CLOSE_SIDENAV);
+});
+
 test("closeDetail() should create a CLOSE_DETAIL action", () => {
   const action = ApplicationActions.closeDetail();
 

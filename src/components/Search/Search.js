@@ -7,7 +7,6 @@ const ENTER_KEY = 13;
 export class Search extends Component {
   handleChange = event => {
     const value = event.target.value;
-    console.log("event: change");
 
     if (this.props.onChange) {
       this.props.onChange(value);

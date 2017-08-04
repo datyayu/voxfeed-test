@@ -32,6 +32,26 @@ test("It should set as false showNav on TOGGLE_SIDENAV action", () => {
   expect(updatedState.user).toBe(state.user);
 });
 
+test("It should set as true showNav on OPEN_SIDENAV action", () => {
+  const action = ApplicationActions.openSidenav();
+  const state = defaultState;
+  const updatedState = applicationReducer(state, action);
+
+  expect(updatedState.showNav).toBe(true);
+  expect(updatedState.showDetail).toBe(state.showDetail);
+  expect(updatedState.user).toBe(state.user);
+});
+
+test("It should set as false showNav on CLOSE_SIDENAV action", () => {
+  const action = ApplicationActions.closeSidenav();
+  const state = { ...defaultState, showNav: true };
+  const updatedState = applicationReducer(state, action);
+
+  expect(updatedState.showNav).toBe(false);
+  expect(updatedState.showDetail).toBe(state.showDetail);
+  expect(updatedState.user).toBe(state.user);
+});
+
 test("It should close the navbar and the detail view on CLOSE_DETAIL action", () => {
   const action = ApplicationActions.closeDetail();
   const state = defaultState;

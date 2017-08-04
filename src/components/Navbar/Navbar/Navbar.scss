@@ -1,0 +1,27 @@
+@import "../../../config/colors.scss";
+
+.navbar {
+  background: $navbar-default-bg;
+  height: 100vh;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transform: translateX(-100px);
+  transition: 200ms transform ease-in-out;
+  width: 100px;
+  will-change: transform;
+}
+
+.navbar.show-mobile {
+  transform: translateX(0);
+}
+
+@media screen and (min-width: 765px) {
+  .navbar {
+    position: static;
+    transform: translateX(0);
+    transition: none;
+    will-change: none;
+  }
+}

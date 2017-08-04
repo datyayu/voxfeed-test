@@ -1,0 +1,10 @@
+@import '../../../config/colors.scss';
+
+.dashboard-icon {
+  margin-top: 1em;
+  fill: $navbar-icon-default;
+}
+
+.dashboard-icon.active {
+  fill: $navbar-icon-active;
+}

@@ -1,0 +1,37 @@
+@import "../../config/colors.scss";
+
+.search {
+  position: relative;
+}
+
+.search__icon {
+  fill: $light-text;
+  height: 1.5em;
+  left: 1em;
+  position: absolute;
+  top: .6em;
+}
+
+.search__input {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid $border;
+  border-top: 1px solid $border;
+  box-shadow: 0px 1px 1px 0px $border;
+  box-sizing: border-box;
+  color: $light-text;
+  font-size: 1.2em;
+  margin: 0;
+  outline: none;
+  padding: .5em 1em .5em 3em;
+  width: 100%;
+  z-index: 9;
+}
+
+@media screen and (min-width: 765px) {
+  .search__input {
+    border-bottom: 1px solid $border;
+    border-top: none;
+    box-shadow: 0px 1px 2px 0px $mobile-header-bg;
+  }
+}

@@ -1,0 +1,9 @@
+@import '../../../config/colors.scss';
+
+.voxfeed-icon {
+  fill: $main-color;
+}
+
+.voxfeed-icon.active {
+  fill: $navbar-icon-active;
+}

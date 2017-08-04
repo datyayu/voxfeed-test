@@ -1,0 +1,14 @@
+.back-button {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+}
+.back-button__arrow {
+  font-size: 3em;
+  font-weight: 200;
+  margin-top: -.30em;
+}
+
+.back-button__text {
+  margin-top: -.65em;
+}

@@ -1,0 +1,29 @@
+@import "../../../config/colors.scss";
+
+.navbar-user {
+  position: relative;
+  width: 100%;
+}
+
+.navbar-user__badge {
+  background-color: $navbar-active-bg;
+  border: 2px solid white;
+  border-radius: 40%;
+  color: white;
+  font-size: .75em;
+  height: 15px;
+  min-width: 15px;
+  padding: .2em .3em;
+  position: absolute;
+  right: .5em;
+  text-align: center;
+  top: 0em;
+}
+
+.navbar-user__image {
+  border: 2px solid $navbar-default-bg;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto .5em auto;
+  width: 40px;
+}

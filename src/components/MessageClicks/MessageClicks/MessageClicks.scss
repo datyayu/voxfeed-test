@@ -1,0 +1,44 @@
+@import '../../../config/colors.scss';
+
+.message-clicks {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.message-clicks__bar {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  transition: height 300ms ease-in-out;
+  transform-origin: bottom;
+  width: 50px;
+  will-change: transform;
+}
+
+.message-clicks__payed {
+  animation: grow 1.25s ease-in-out;
+  background: $payed-clicks-bar;
+}
+
+.message-clicks__total {
+  animation: grow 1s ease-in-out;
+  background: $total-clicks-bar;
+  box-sizing: border-box;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.message-clicks__unique {
+  animation: grow 1.15s ease-in-out;
+  background: $unique-clicks-bar;
+}
+
+@keyframes grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}

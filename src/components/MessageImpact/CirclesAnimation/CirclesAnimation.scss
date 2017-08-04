@@ -1,0 +1,63 @@
+@import "../../../config/colors.scss";
+
+.circles-animation {
+  margin-left: 50%;
+  min-width: 765px;
+  transform: translateX(-50%);
+  will-change: transform;
+}
+
+.blue-circle {
+  animation: fade-in-main .5s ease-in-out;
+  animation-fill-mode: forwards;
+  will-change: opacity;
+}
+
+.gray-circle {
+  animation: fade-in-light .5s ease-in-out;
+  animation-fill-mode: forwards;
+  will-change: opacity;
+}
+
+#oval-1 {
+  animation-delay: 300ms;
+}
+#oval-2 {
+  animation-delay: 275ms;
+}
+#oval-3 {
+  animation-delay: 400ms;
+}
+#oval-4 {
+  animation-delay: 550ms;
+}
+#oval-5 {
+  animation-delay: 725ms;
+  opacity: .6;
+}
+#oval-6 {
+  animation-delay: 950ms;
+  opacity: .4;
+}
+#oval-7 {
+  animation-delay: 1200ms;
+  opacity: .25;
+}
+
+@keyframes fade-in-main {
+  from {
+    stroke: white;
+  }
+  to {
+    stroke: $main-color;
+  }
+}
+
+@keyframes fade-in-light {
+  from {
+    stroke: white;
+  }
+  to {
+    stroke: $main-color;
+  }
+}

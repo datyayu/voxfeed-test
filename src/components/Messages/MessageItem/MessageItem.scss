@@ -1,0 +1,27 @@
+@import "../../../config/colors.scss";
+
+.message-item {
+  background: white;
+  border-bottom: 1px solid $border;
+  border-right: 4px solid white;
+  cursor: pointer;
+  display: flex;
+  padding: 0.5em 1.5em 1.5em;
+  text-decoration: none;
+}
+
+.message-item:hover {
+  background-color: $message-active-bg;
+  border-right: 4px solid $message-active-bg;
+}
+
+.message-item.active {
+  background-color: $message-active-bg;
+  border-right: 4px solid $message-active-border;
+}
+
+@media screen and (min-width: 765px) {
+  .message-item {
+    padding: 1.5em 2em 2em;
+  }
+}

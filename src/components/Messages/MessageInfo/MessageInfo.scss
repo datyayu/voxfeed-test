@@ -1,0 +1,15 @@
+@import "../../../config/colors.scss";
+
+.message-info {
+  color: $light-text;
+  font-size: .7em;
+  margin-bottom: .5em;
+}
+
+.message-info__text {
+  padding: 0 .5em;
+}
+
+.message-info__text:first-child {
+  padding-left: 0;
+}

@@ -1,0 +1,27 @@
+@import "../../../config/colors.scss";
+
+.impact-pin-line {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.impact-pin-line__circle,
+.impact-pin-line__line {
+  background: $main-color;
+  left: 50%;
+  position: absolute;
+  top: 2.5em;
+}
+
+.impact-pin-line__circle {
+  border-radius: 50%;
+  height: 6px;
+  left: calc(50% - 2px);
+  width: 6px;
+}
+
+.impact-pin-line__line {
+  height: 4em;
+  width: 2px;
+}

@@ -1,0 +1,33 @@
+@import "../../config/colors.scss";
+
+.message-detail-page {
+  background: white;
+  box-shadow: 0 0 16px 4px $dark-shadow;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: 300ms transform ease-in-out;
+  transform: translateX(120%);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
+  will-change: transform;
+  z-index: 9;
+}
+
+.message-detail-page.active {
+  transform: translateX(0);
+}
+
+@media screen and (min-width: 765px) {
+  .message-detail-page {
+    box-shadow: none;
+    position: static;
+    transform: translateX(0);
+    width: 50%;
+    z-index: 1;
+  }
+}

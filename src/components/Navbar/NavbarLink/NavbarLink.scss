@@ -1,0 +1,52 @@
+@import "../../../config/colors.scss";
+
+.navbar-link {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  height: 90px;
+  margin: .25em 0;
+  padding: .5em 10% 1em 10%;
+  text-decoration: none;
+  width: 100%;
+}
+
+.navbar-link:hover {
+  background: $navbar-hover-bg;
+  margin: .25em 10%;
+  padding: .5em 0 1em 0;
+  width: 80%;
+}
+
+.navbar-link.active,
+.navbar-link.active:hover {
+  background: $navbar-active-bg;
+  color: white;
+  margin: .25em 0;
+  padding: .5em 10% 1em 10%;
+  width: 100%;
+}
+
+.navbar-link__label {
+  color: $navbar-icon-default;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.navbar-link:hover .navbar-link__label,
+.navbar-link.active .navbar-link__label {
+  color: $navbar-icon-active;
+}
+
+.navbar-link:hover svg g,
+.navbar-link.active svg g {
+  fill: $navbar-icon-active;
+}
+
+.navbar-link.active img {
+  border: 2px solid $navbar-icon-active;
+}

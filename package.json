@@ -11,18 +11,26 @@
     "react-router-dom": "^4.1.2",
     "react-router-redux": "next",
     "react-scripts": "1.0.10",
-    "react-transition-group": "^2.2.0",
     "redux": "^3.7.2",
     "redux-router": "^2.1.2"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test --env=jsdom",
-    "eject": "react-app-rewired eject"
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-app-rewired": "^1.1.0",
+    "css-loader": "^0.28.4",
+    "enzyme": "^2.9.1",
+    "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.0.2",
+    "react-test-renderer": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
     "styled-jsx": "^1.0.10"
   }
 }

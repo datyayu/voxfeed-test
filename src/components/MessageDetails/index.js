@@ -1,3 +1,3 @@
-export * from "./MessageDetail";
-export * from "./MessageDetailCampaign";
+export * from "./MessageDetails";
+export * from "./MessageDetailsCampaign";
 export * from "./MessageDetailTitle";

@@ -3,4 +3,4 @@ export * from "./MessageDetails";
 export * from "./Messages";
 export * from "./MobileHeader";
 export * from "./Navbar";
-export * from "./Shared";
+export * from "./Search";

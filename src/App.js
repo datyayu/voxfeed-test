@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { ApplicationActions } from "./actions";
 import { ApplicationSelectors, MessagesSelectors } from "./selectors";
 import { Navbar } from "./components";
-import { Routes } from "./routes";
+import { Routes } from "./Routes";
+import "./App.css";
 
 class App extends Component {
   componentDidMount() {
@@ -26,14 +27,6 @@ class App extends Component {
         />
 
         <Routes showNav={showNav} />
-
-        <style jsx>{`
-          .app {
-            display: flex;
-            overflow: hidden;
-            width: 100vw;
-          }
-        `}</style>
       </div>
     );
   }

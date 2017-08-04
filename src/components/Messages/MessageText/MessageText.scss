@@ -1,0 +1,15 @@
+@import "../../../config/colors.scss";
+
+.message-text {
+  color: $dark-text;
+  word-break: break-word;
+}
+
+.message-text__link {
+  color: $main-color;
+  text-decoration: none;
+}
+
+.message-text__link:hover {
+  text-decoration: underline;
+}

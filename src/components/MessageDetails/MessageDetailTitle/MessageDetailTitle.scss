@@ -1,0 +1,25 @@
+@import '../../../config/colors.scss';
+
+.message-detail-title {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  margin: 1.5em 5%;
+  min-height: 3em;
+  position: relative;
+  text-align: center;
+}
+
+.message-detail-title__bar {
+  border-bottom: 1px solid $border;
+  height: 1px;
+  width: 50%;
+}
+
+.message-detail-title__text {
+  font-size: 1.2em;
+  font-weight: normal;
+  margin: 0 .5em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}

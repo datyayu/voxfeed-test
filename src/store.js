@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { routerMiddleware } from "react-router-redux";
 
 import { reducer } from "./reducers";
-import { history } from "./routes";
+import { history } from "./Routes";
 
 const routingMiddleware = routerMiddleware(history);
 const middleware = applyMiddleware(routingMiddleware);

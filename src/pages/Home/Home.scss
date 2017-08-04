@@ -1,3 +1,44 @@
+@import "../../config/colors.scss";
+
 .home-page {
   width: 100%;
+  height: 100vh;
+}
+
+.home-page__content {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.home-page__text {
+  background: white;
+  color: black;
+  font-size: 3em;
+  font-weight: lighter;
+  margin: 0;
+  margin-top: -2em;
+  position: relative;
+
+  &::before {
+    background: linear-gradient(to right, $gradient-start, $gradient-end);
+    content: '';
+    bottom: 0;
+    display: block;
+    position: absolute;
+    left: 0;
+    mix-blend-mode: screen;
+    right: 0;
+    top: 0;
+  }
+}
+
+@media screen and (min-height: 765px) {
+  .home-page__text {
+    font-size: 4em;
+    margin-top: 0;
+  }
 }

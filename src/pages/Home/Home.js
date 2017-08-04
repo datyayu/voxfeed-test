@@ -8,7 +8,9 @@ import "./Home.css";
 export const HomePageComponent = ({ showMenu, toggleNav }) =>
   <div className="home-page">
     <MobileHeader title="Home" showMenu={showMenu} onButtonClick={toggleNav} />
-    <h1>HELLO</h1>
+    <div className="home-page__content">
+      <h1 className="home-page__text">FRONT END TEST</h1>
+    </div>
   </div>;
 
 function mapStateToProps(state) {

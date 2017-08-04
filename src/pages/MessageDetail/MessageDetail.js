@@ -7,7 +7,7 @@ import "./MessageDetail.css";
 
 export const MessageDetailPageComponent = ({ message, show, onClose }) => {
   const pageClasses = `message-detail-page ${show && "active"}`;
-  const title = message ? message.campaign.name : "Now loading";
+  const title = message ? message.campaign.name : "";
 
   return (
     <div className={pageClasses}>

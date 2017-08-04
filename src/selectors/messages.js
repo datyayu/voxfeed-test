@@ -58,7 +58,7 @@ export class MessagesSelectors {
    */
   static getMessages(state) {
     const messages = state.messages.messages;
-    const filterQuery = state.messages.searchQuery;
+    const filterQuery = state.messages.searchQuery.toLowerCase();
 
     const updatedMessages = Object.keys(messages)
       // Fill info.

@@ -29,9 +29,10 @@ export const MessageImpact = ({ user, retweets, replies }) =>
       className="small-pin"
     />
     <MessageImpactBigPin
-      number={retweets}
-      text="Usuarios via Retweets"
       className="big-pin"
+      text="Usuarios via Retweets"
+      description="Numero de usuarios alcanzados por medio de retweets"
+      number={retweets}
     />
   </div>;
 

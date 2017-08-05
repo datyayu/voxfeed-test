@@ -18,6 +18,7 @@
 .message-clicks__payed {
   animation: grow 1.25s ease-in-out;
   background: $payed-clicks-bar;
+  z-index: 1;
 }
 
 .message-clicks__total {
@@ -26,12 +27,14 @@
   box-sizing: border-box;
   height: 200px;
   margin: 0 auto;
-  position: relative;
+  position: static;
+  z-index: 3;
 }
 
 .message-clicks__unique {
   animation: grow 1.15s ease-in-out;
   background: $unique-clicks-bar;
+  z-index: 2;
 }
 
 @keyframes grow {

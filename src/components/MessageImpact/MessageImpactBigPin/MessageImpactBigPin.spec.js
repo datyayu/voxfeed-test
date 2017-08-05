@@ -3,12 +3,24 @@ import { mount, shallow } from "enzyme";
 import { MessageImpactBigPin } from "./MessageImpactBigPin";
 
 test("It should render", () => {
-  mount(<MessageImpactBigPin className="test-class" number={3} text="test" />);
+  mount(
+    <MessageImpactBigPin
+      className="test-class"
+      number={3}
+      text="test"
+      description="this is a test"
+    />
+  );
 });
 
 test("It should use the className passed as a prop", () => {
   const component = shallow(
-    <MessageImpactBigPin className="test-class" number={3} text="test" />
+    <MessageImpactBigPin
+      className="test-class"
+      number={3}
+      text="test"
+      description="this is a test"
+    />
   );
   const element = component.find(".impact-big-pin").first();
 
@@ -17,7 +29,12 @@ test("It should use the className passed as a prop", () => {
 
 test("It should render the number passed as a prop", () => {
   const component = shallow(
-    <MessageImpactBigPin className="test-class" number={3} text="test" />
+    <MessageImpactBigPin
+      className="test-class"
+      number={3}
+      text="test"
+      description="this is a test"
+    />
   );
   const element = component.find(".impact-big-pin__number").first();
 
@@ -25,10 +42,15 @@ test("It should render the number passed as a prop", () => {
 });
 
 test("It should render the text passed as a prop", () => {
-  const component = shallow(
-    <MessageImpactBigPin className="test-class" number={3} text="test" />
+  const component = mount(
+    <MessageImpactBigPin
+      className="test-class"
+      number={3}
+      text="test"
+      description="this is a test"
+    />
   );
   const element = component.find(".impact-big-pin__text").first();
 
-  expect(element.text()).toBe("test");
+  expect(element.text()).toBe("test (?)");
 });

@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { MessageTooltip } from "../../MessageTooltip";
 import "./MessageClicksDescription.css";
 
 export const MessageClicksDescription = ({
   clicks,
   text,
+  description,
   alignLeft,
   topOnMobile
 }) => {
@@ -21,8 +23,10 @@ export const MessageClicksDescription = ({
           {clicks}
         </span>
         <span>
-          {" "}{text}
+          {" "}{text}{" "}
         </span>
+
+        <MessageTooltip text={description} />
       </span>
     </div>
   );
@@ -31,6 +35,7 @@ export const MessageClicksDescription = ({
 MessageClicksDescription.propTypes = {
   clicks: PropTypes.number,
   text: PropTypes.string,
+  description: PropTypes.string,
   alignLeft: PropTypes.bool,
   topOnMobile: PropTypes.bool
 };

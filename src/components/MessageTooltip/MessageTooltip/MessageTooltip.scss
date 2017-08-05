@@ -1,0 +1,23 @@
+@import "../../../config/colors.scss";
+
+.message-tooltip {
+  display: inline;
+}
+
+.message-tooltip__popup {
+  background: $tooltip-bg;
+  font-size: .7em;
+  margin-top: .5em;
+  padding: 1em 1em;
+  position: absolute;
+  text-align: center;
+}
+
+.message-tooltip__qmark {
+  color: $main-color;
+  cursor: pointer;
+}
+
+.message-tooltip__qmark:hover {
+  text-decoration: underline;
+}

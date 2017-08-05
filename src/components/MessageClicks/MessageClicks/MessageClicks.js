@@ -10,7 +10,11 @@ export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
   return (
     <div className="message-clicks">
       <div className="message-clicks__bar message-clicks__total">
-        <MessageClicksDescription clicks={total} text="click totales" />
+        <MessageClicksDescription
+          clicks={total}
+          text="click totales"
+          description="Numero de clicks totales obtenidos."
+        />
 
         <div
           className="message-clicks__bar message-clicks__unique"
@@ -19,6 +23,7 @@ export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
           <MessageClicksDescription
             clicks={unique}
             text="click únicos"
+            description="Numero de clicks unicos obtenidos."
             topOnMobile
           />
         </div>
@@ -30,6 +35,7 @@ export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
           <MessageClicksDescription
             clicks={payed}
             text="click pagados"
+            description="Numero de clicks pagados obtenidos."
             alignLeft
           />
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
+import { MockMessage } from "../../../types";
 import { MemoryRouter } from "react-router";
 import { MessageItem } from "./MessageItem";
 
@@ -13,7 +14,7 @@ const message = {
 test("It should render", () => {
   mount(
     <MemoryRouter>
-      <MessageItem message={message} />
+      <MessageItem message={MockMessage} />
     </MemoryRouter>
   );
 });
@@ -21,10 +22,10 @@ test("It should render", () => {
 test("It should link to /messages/:id", () => {
   const component = mount(
     <MemoryRouter>
-      <MessageItem message={message} />
+      <MessageItem message={MockMessage} />
     </MemoryRouter>
   );
   const element = component.find("a").first();
 
-  expect(element.prop("href")).toBe("/messages/2");
+  expect(element.prop("href")).toBe(`/messages/${MockMessage.id}`);
 });

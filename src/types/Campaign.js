@@ -6,3 +6,10 @@ export const CampaignPropType = PropTypes.shape({
   groupAd: PropTypes.string.isRequired,
   logo: PropTypes.string.isRequired
 });
+
+export const MockCampaign = {
+  id: 2,
+  brand: "test brand",
+  groupAd: "Test campaign",
+  logo: "/assets/campaign.jpg"
+};

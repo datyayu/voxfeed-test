@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
-import { UserPropType } from "./User";
-import { CampaignPropType } from "./Campaign";
+import { UserPropType, MockUser } from "./User";
+import { CampaignPropType, MockCampaign } from "./Campaign";
 
 export const MessagePropType = PropTypes.shape({
   id: PropTypes.number.isRequired,
@@ -21,3 +21,26 @@ export const MessagePropType = PropTypes.shape({
   user: UserPropType,
   campaign: CampaignPropType
 });
+
+/**
+ * FOR TESTS ONLY
+ */
+export const MockMessage = {
+  id: 1,
+  date: "jun 2016",
+  content: "hello world",
+  image: "/assets/image.jpg",
+  isActive: false,
+  read: false,
+  results: {
+    clicks: {
+      total: 100,
+      unique: 50,
+      payed: 30
+    },
+    replies: 10,
+    retweets: 25
+  },
+  user: MockUser,
+  campaign: MockCampaign
+};

@@ -1,17 +1,18 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
+import { MockUser } from "../../../types";
 import { MessageImpact } from "./MessageImpact";
 
 test("It should render", () => {
-  const user = { name: "test", avatarUrl: "/assets/test.jpg" };
-  mount(<MessageImpact user={user} />);
+  mount(<MessageImpact user={MockUser} retweets={10} replies={5} />);
 });
 
-test("It should render an image with the user's avatar", () => {
-  const user = { name: "test", avatarUrl: "/assets/test.jpg" };
-  const component = shallow(<MessageImpact user={user} />);
+test("It should render an image with the MockUser's avatar", () => {
+  const component = shallow(
+    <MessageImpact user={MockUser} retweets={10} replies={5} />
+  );
   const image = component.find("img").first();
 
-  expect(image.prop("src")).toBe("/assets/test.jpg");
-  expect(image.prop("alt")).toBe("test");
+  expect(image.prop("src")).toBe(MockUser.avatarUrl);
+  expect(image.prop("alt")).toBe(MockUser.name);
 });

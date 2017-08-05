@@ -11,7 +11,7 @@ export const MessageAvatar = ({ avatar, username, read, campaign }) =>
       campaign.logo &&
       <img
         src={campaign.logo}
-        alt={campaign.name}
+        alt={campaign.groupAd}
         height="20px"
         width="20px"
         className="message-avatar__campaign"

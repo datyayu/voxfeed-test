@@ -1,14 +1,25 @@
 import React from "react";
+import { MockMessage } from "../../../types";
 import { mount, shallow } from "enzyme";
 import { MessageDetailCampaign } from "./MessageDetailCampaign";
 
 test("It should render", () => {
-  mount(<MessageDetailCampaign />);
+  mount(
+    <MessageDetailCampaign
+      campaignBrand="Test"
+      campaignLogo="/src/logo.png"
+      campaignName="test"
+    />
+  );
 });
 
 test("It should render the campaign logo as an image", () => {
   const component = shallow(
-    <MessageDetailCampaign campaignName="test" campaignLogo="/src/logo.png" />
+    <MessageDetailCampaign
+      campaignBrand="Test"
+      campaignLogo="/src/logo.png"
+      campaignName="test"
+    />
   );
   const image = component.find("img").first();
 
@@ -17,14 +28,26 @@ test("It should render the campaign logo as an image", () => {
 });
 
 test("It should render the campaign brand", () => {
-  const component = shallow(<MessageDetailCampaign campaignBrand="Test" />);
+  const component = shallow(
+    <MessageDetailCampaign
+      campaignBrand="Test"
+      campaignLogo="/src/logo.png"
+      campaignName="test"
+    />
+  );
   const element = component.find(".message-detail-campaign__brand").first();
 
   expect(element.text()).toBe("Test");
 });
 
 test("It should render the campaign name", () => {
-  const component = shallow(<MessageDetailCampaign campaignName="TEST" />);
+  const component = shallow(
+    <MessageDetailCampaign
+      campaignBrand="Test"
+      campaignLogo="/src/logo.png"
+      campaignName="TEST"
+    />
+  );
   const element = component.find(".message-detail-campaign__name").first();
 
   expect(element.text()).toBe("Campaña TEST");

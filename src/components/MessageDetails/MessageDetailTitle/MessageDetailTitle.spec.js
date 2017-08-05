@@ -3,7 +3,7 @@ import { mount, shallow } from "enzyme";
 import { MessageDetailTitle } from "./MessageDetailTitle";
 
 test("It should render", () => {
-  mount(<MessageDetailTitle />);
+  mount(<MessageDetailTitle title="test" />);
 });
 
 test("It should include the title given as a prop", () => {

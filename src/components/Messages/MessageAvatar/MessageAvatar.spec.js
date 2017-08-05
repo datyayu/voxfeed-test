@@ -1,9 +1,16 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
+import { MockCampaign } from "../../../types";
 import { MessageAvatar } from "./MessageAvatar";
 
 test("It should render", () => {
-  mount(<MessageAvatar username="test" avatar="/assets/avatar.jpg" />);
+  mount(
+    <MessageAvatar
+      username="test"
+      avatar="/assets/avatar.jpg"
+      campaign={MockCampaign}
+    />
+  );
 });
 
 test("It should render the avatar image", () => {
@@ -39,11 +46,11 @@ test("It should render the campaign logo if a campaign is specified", () => {
     <MessageAvatar
       username="test"
       avatar="/assets/avatar.jpg"
-      campaign={{ name: "test campaign", logo: "logo.jpg" }}
+      campaign={MockCampaign}
     />
   );
   const element = component.find(".message-avatar__campaign").first();
 
-  expect(element.prop("src")).toBe("logo.jpg");
-  expect(element.prop("alt")).toBe("test campaign");
+  expect(element.prop("src")).toBe(MockCampaign.logo);
+  expect(element.prop("alt")).toBe(MockCampaign.groupAd);
 });

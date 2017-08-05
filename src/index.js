@@ -6,7 +6,7 @@ import { ConnectedRouter } from "react-router-redux";
 import registerServiceWorker from "./registerServiceWorker";
 import { store } from "./store";
 import App from "./App";
-import { history } from "./Routes";
+import { history } from "./routes";
 
 const ConnectedApp = withRouter(App);
 

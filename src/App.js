@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { ApplicationActions } from "./actions";
 import { ApplicationSelectors, MessagesSelectors } from "./selectors";
 import { Navbar } from "./components";
-import { Routes } from "./Routes";
+import { Routes } from "./routes";
 import "./App.css";
 
 class App extends Component {

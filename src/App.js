@@ -7,13 +7,24 @@ import { Routes } from "./Routes";
 import "./App.css";
 
 class App extends Component {
+  // Simulate fetching delay.
+  async delayedFetch(includeDelay) {
+    if (includeDelay) {
+      const delay = Math.random(0, 1) * 5000; // 0 - 5 seconds random delay
+      await new Promise((resolve, reject) => setTimeout(resolve, delay));
+    }
+    return fetch("/assets/data.json");
+  }
+
+  // When app is mounted, fetch the data
   componentDidMount() {
     this.props.fetchData();
 
-    fetch("/assets/data.json")
+    // Set to false to skip fake delay / loading animation.
+    this.delayedFetch(true)
       .then(response => response.json())
       .then(data => this.props.dataFetchSuccess(data))
-      .catch(error => this.props.dataFetchFail(error));
+      .catch(error => this.props.dataFetchFail());
   }
 
   render() {

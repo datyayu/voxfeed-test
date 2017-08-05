@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { SearchIcon } from "../Icons";
+import { SearchIcon } from "../../Icons";
 import "./Search.css";
 
 const ENTER_KEY = 13;

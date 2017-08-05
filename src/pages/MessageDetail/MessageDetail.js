@@ -11,11 +11,9 @@ export const MessageDetailPageComponent = ({ message, show, closeDetail }) => {
   const title = message ? message.campaign.name : "";
 
   return (
-    <Swipeable onSwipingRight={closeDetail}>
-      <div className={pageClasses}>
-        <MobileHeader hasBack onButtonClick={closeDetail} title={title} />
-        <MessageDetail message={message} />
-      </div>
+    <Swipeable onSwipingRight={closeDetail} className={pageClasses}>
+      <MobileHeader hasBack onButtonClick={closeDetail} title={title} />
+      <MessageDetail message={message} />
     </Swipeable>
   );
 };

@@ -1,14 +1,16 @@
-import { ApplicationActions, MessagesActions } from "../actions";
-import { LOCATION_CHANGE } from "react-router-redux";
 import { matchPath } from "react-router";
+import { LOCATION_CHANGE } from "react-router-redux";
+import { ApplicationActions, MessagesActions } from "../actions";
 
 /****************
  *     STATE    *
  ****************/
 
 const initialState = {
-  showNav: false,
+  hasError: false,
+  isFetching: false,
   showDetail: false,
+  showNav: false,
   user: null
 };
 
@@ -46,6 +48,14 @@ export function applicationReducer(state = initialState, action) {
      * DATA FETCHING  *
      ******************/
 
+    // Start fetching.
+    case ApplicationActions.FETCH_DATA:
+      return {
+        ...state,
+        hasError: false,
+        isFetching: true
+      };
+
     // Set the fetched user as the active user.
     case ApplicationActions.DATA_FETCH_SUCCESS:
       const data = action.payload;
@@ -53,7 +63,17 @@ export function applicationReducer(state = initialState, action) {
 
       return {
         ...state,
+        hasError: false,
+        isFetching: false,
         user: user._id
+      };
+
+    // Data fetch failed, set the error.
+    case ApplicationActions.DATA_FETCH_FAIL:
+      return {
+        ...state,
+        hasError: true,
+        isFetching: false
       };
 
     /******************

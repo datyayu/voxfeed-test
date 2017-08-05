@@ -1,7 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import Swipeable from "react-swipeable";
-import { Search, MessageList, MobileHeader } from "../../components";
+import {
+  Search,
+  MessageList,
+  MobileHeader,
+  LoadingAnimation,
+  LoadingError
+} from "../../components";
 import { ApplicationSelectors, MessagesSelectors } from "../../selectors";
 import { ApplicationActions, MessagesActions } from "../../actions";
 import "./Messages.css";
@@ -9,6 +15,8 @@ import "./Messages.css";
 export const MessagesPageComponent = ({
   messages,
   showMenu,
+  isFetchingData,
+  fetchingError,
   searchQuery,
   toggleNav,
   openNav,
@@ -16,21 +24,29 @@ export const MessagesPageComponent = ({
   setActiveMessage,
   onQueryChange
 }) =>
-  <Swipeable onSwipingRight={openNav} onSwipingLeft={closeNav}>
-    <div className="messages-page">
-      <MobileHeader
-        title="messages"
-        showMenu={showMenu}
-        onButtonClick={toggleNav}
-      />
+  <Swipeable
+    onSwipingRight={openNav}
+    onSwipingLeft={closeNav}
+    className="messages-page"
+  >
+    <MobileHeader
+      title="messages"
+      showMenu={showMenu}
+      onButtonClick={toggleNav}
+    />
 
-      <Search value={searchQuery} onChange={onQueryChange} />
-      <MessageList messages={messages} onItemClick={setActiveMessage} />
-    </div>
+    <Search value={searchQuery} onChange={onQueryChange} />
+    {isFetchingData
+      ? <LoadingAnimation />
+      : <MessageList messages={messages} onItemClick={setActiveMessage} />}
+
+    {fetchingError && <LoadingError error={fetchingError} />}
   </Swipeable>;
 
 function mapStateToProps(state) {
   return {
+    fetchingError: ApplicationSelectors.hasFetchingFailed(state),
+    isFetchingData: ApplicationSelectors.isFetchingData(state),
     showMenu: ApplicationSelectors.isSidenavActive(state),
     messages: MessagesSelectors.getMessages(state),
     searchQuery: MessagesSelectors.getSearchQuery(state)

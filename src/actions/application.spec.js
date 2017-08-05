@@ -49,5 +49,4 @@ test("dataFetchFail() should create a DATA_FETCH_FAIL action", () => {
   const action = ApplicationActions.dataFetchFail("Error");
 
   expect(action.type).toBe(ApplicationActions.DATA_FETCH_FAIL);
-  expect(action.payload).toBe("Error");
 });

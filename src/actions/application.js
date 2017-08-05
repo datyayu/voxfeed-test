@@ -41,7 +41,7 @@ export class ApplicationActions {
   }
 
   static DATA_FETCH_FAIL = "application/DATA_FETCH_FAIL";
-  static dataFetchFail(error) {
-    return { type: ApplicationActions.DATA_FETCH_FAIL, payload: error };
+  static dataFetchFail() {
+    return { type: ApplicationActions.DATA_FETCH_FAIL };
   }
 }

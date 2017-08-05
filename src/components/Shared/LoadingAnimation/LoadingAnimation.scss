@@ -1,0 +1,20 @@
+@import "../../../config/colors.scss";
+
+.loading-animation {
+  margin: 1em auto;
+}
+
+.loading-animation__path {
+  animation: 1500ms loading-animation linear infinite;
+  stroke-dasharray: 493 493;
+  stroke: $main-color;
+}
+
+@keyframes loading-animation {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 1000;
+  }
+}

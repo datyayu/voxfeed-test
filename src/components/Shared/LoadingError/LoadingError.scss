@@ -1,0 +1,11 @@
+@import "../../../config/colors.scss";
+
+.loading-error {
+  margin: 1em auto;
+  color: $error-text;
+}
+
+.loading-error__text {
+  font-weight: lighter;
+  text-align: center;
+}

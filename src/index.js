@@ -7,7 +7,6 @@ import registerServiceWorker from "./registerServiceWorker";
 import { store } from "./store";
 import App from "./App";
 import { history } from "./Routes";
-import "./index.css";
 
 const ConnectedApp = withRouter(App);
 

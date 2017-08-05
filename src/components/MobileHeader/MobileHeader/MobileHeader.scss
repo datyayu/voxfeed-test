@@ -6,10 +6,11 @@
   box-shadow: 1px 1px 2px 0px $border;
   box-sizing: border-box;
   display: flex;
-  height: 4em;
+  height: 3em;
+  min-height: 3em;
   justify-content: center;
   max-width: 100vw;
-  padding: 1em;
+  padding: .75em;
   position: relative;
   width: 100%;
 }
@@ -32,7 +33,7 @@
   cursor: pointer;
   left: 1em;
   position: absolute;
-  top: 1em;
+  top: .5em;
 }
 
 @media screen and (min-width: 765px) {

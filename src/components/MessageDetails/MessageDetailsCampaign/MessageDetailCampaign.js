@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./MessageDetailCampaign.css";
 
 export const MessageDetailCampaign = ({
@@ -23,3 +24,9 @@ export const MessageDetailCampaign = ({
       </h4>
     </div>
   </div>;
+
+MessageDetailCampaign.propTypes = {
+  campaignBrand: PropTypes.string.isRequired,
+  campaignLogo: PropTypes.string.isRequired,
+  campaignName: PropTypes.string.isRequired
+};

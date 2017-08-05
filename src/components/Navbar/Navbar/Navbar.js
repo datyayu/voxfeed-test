@@ -1,10 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { UserPropType } from "../../../types";
 import { DashboardIcon, VoxFeedIcon } from "../../Icons";
 import { NavbarItem } from "../NavbarItem";
 import { NavbarUser } from "../NavbarUser";
 import "./Navbar.css";
 
-export const Navbar = ({ user, notifications = 0, showOnMobile = false }) => {
+export const Navbar = ({ user, notifications, showOnMobile }) => {
   const navbarClasses = `navbar ${showOnMobile && "show-mobile"}`;
 
   return (
@@ -21,4 +23,10 @@ export const Navbar = ({ user, notifications = 0, showOnMobile = false }) => {
         />}
     </div>
   );
+};
+
+Navbar.propTypes = {
+  user: UserPropType,
+  notifications: PropTypes.number,
+  showOnMobile: PropTypes.bool
 };

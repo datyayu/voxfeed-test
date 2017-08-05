@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./DashboardIcon.css";
 
 export const DashboardIcon = ({ isActive }) => {
@@ -30,4 +31,8 @@ export const DashboardIcon = ({ isActive }) => {
       </g>
     </svg>
   );
+};
+
+DashboardIcon.propTypes = {
+  isActive: PropTypes.bool
 };

@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { CampaignPropType } from "../../../types";
 import "./MessageAvatar.css";
 
 export const MessageAvatar = ({ avatar, username, read, campaign }) =>
@@ -23,3 +25,10 @@ export const MessageAvatar = ({ avatar, username, read, campaign }) =>
       width="40px"
     />
   </div>;
+
+MessageAvatar.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  read: PropTypes.bool,
+  campaign: CampaignPropType
+};

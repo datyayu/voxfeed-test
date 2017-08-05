@@ -1,4 +1,5 @@
 import React from "react";
+import { MessagePropType } from "../../../types";
 import { MessageInfo } from "../MessageInfo";
 import { MessageText } from "../MessageText";
 import "./MessageContent.css";
@@ -19,3 +20,7 @@ export const MessageContent = ({ message }) =>
         width="100%"
       />}
   </div>;
+
+MessageContent.propTypes = {
+  message: MessagePropType
+};

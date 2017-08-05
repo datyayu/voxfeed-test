@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MessageClicksDescription } from "../MessageClicksDescription";
 import "./MessageClicks.css";
 
@@ -35,4 +36,10 @@ export const MessageClicks = ({ total = 0, unique = 0, payed = 0 }) => {
       </div>
     </div>
   );
+};
+
+MessageClicks.propTypes = {
+  total: PropTypes.number,
+  unique: PropTypes.number,
+  payed: PropTypes.number
 };

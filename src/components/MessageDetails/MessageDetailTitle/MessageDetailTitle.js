@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./MessageDetailTitle.css";
 
 export const MessageDetailTitle = ({ title }) =>
@@ -9,3 +10,7 @@ export const MessageDetailTitle = ({ title }) =>
     </h2>
     <span className="message-detail-title__bar" />
   </div>;
+
+MessageDetailTitle.propTypes = {
+  title: PropTypes.string.isRequired
+};

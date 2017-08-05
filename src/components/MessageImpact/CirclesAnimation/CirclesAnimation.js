@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./CirclesAnimation.css";
 
 export const CirclesAnimation = ({ className }) =>
@@ -62,3 +63,7 @@ export const CirclesAnimation = ({ className }) =>
       />
     </g>
   </svg>;
+
+CirclesAnimation.propTypes = {
+  className: PropTypes.string
+};

@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { UserPropType } from "../../../types";
 import { CirclesAnimation } from "../CirclesAnimation";
 import { MessageImpactCentralPin } from "../MessageImpactCentralPin";
 import { MessageImpactSmallPin } from "../MessageImpactSmallPin";
@@ -32,3 +34,9 @@ export const MessageImpact = ({ user, retweets, replies }) =>
       className="big-pin"
     />
   </div>;
+
+MessageImpact.propTypes = {
+  replies: PropTypes.number.isRequired,
+  retweets: PropTypes.number.isRequired,
+  user: UserPropType
+};

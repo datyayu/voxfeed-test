@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { MessageImpactPinLine } from "../MessageImpactPinLine";
 import "./MessageImpactBigPin.css";
 
@@ -15,3 +16,9 @@ export const MessageImpactBigPin = ({ className, number, text }) =>
       {text}
     </span>
   </div>;
+
+MessageImpactBigPin.propTypes = {
+  className: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired
+};

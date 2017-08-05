@@ -14,7 +14,7 @@
           "payed": 145
         },
         "retweets": 2138,
-        "replys": 478
+        "replies": 478
       },
       "entities": {
         "hashtags": ["#MiCombiSqualo"],
@@ -34,7 +34,7 @@
           "payed": 235
         },
         "retweets": 2134,
-        "replys": 412
+        "replies": 412
       },
       "entitites": {
         "hashtags": ["#coding"],
@@ -54,7 +54,7 @@
           "payed": 1325
         },
         "retweets": 5438,
-        "replys": 2318
+        "replies": 2318
       },
       "entities": {
         "hashtags": ["#MiCombiSqualo"],
@@ -75,7 +75,7 @@
           "payed": 1425
         },
         "retweets": 2138,
-        "replys": 4782
+        "replies": 4782
       },
       "entities": {
         "hashtags": ["#TelcelBackToSchool"],

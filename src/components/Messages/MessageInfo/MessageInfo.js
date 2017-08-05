@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./MessageInfo.css";
 
 export const MessageInfo = ({ date, username, campaignName }) =>
@@ -11,3 +12,9 @@ export const MessageInfo = ({ date, username, campaignName }) =>
       </span>}
     <span className="message-info__text">{date}</span>
   </div>;
+
+MessageInfo.propTypes = {
+  date: PropTypes.string,
+  username: PropTypes.string,
+  campaignName: PropTypes.string
+};

@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { UserPropType } from "../../../types";
 import "./NavbarUser.css";
 
-export const NavbarUser = ({ user, notifications = 10 }) => {
+export const NavbarUser = ({ user, notifications = 0 }) => {
   return (
     <div className="navbar-user">
       {notifications > 0 &&
@@ -18,4 +20,9 @@ export const NavbarUser = ({ user, notifications = 10 }) => {
       />
     </div>
   );
+};
+
+NavbarUser.propTypes = {
+  user: UserPropType,
+  notifications: PropTypes.number
 };

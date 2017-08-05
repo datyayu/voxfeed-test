@@ -4,9 +4,9 @@
   background: white;
   border-right: 1px solid $border;
   box-sizing: border-box;
+  flex-shrink: 2;
   margin: 0;
   overflow-y: auto;
   padding: 0;
   width: 100%;
-  z-index: 2;
 }

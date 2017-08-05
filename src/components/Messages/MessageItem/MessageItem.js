@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { MessagePropType } from "../../../types";
 import { MessageContent } from "../MessageContent";
 import { MessageAvatar } from "../MessageAvatar";
 import "./MessageItem.css";
@@ -15,3 +16,7 @@ export const MessageItem = ({ message }) =>
 
     <MessageContent message={message} />
   </NavLink>;
+
+MessageItem.propTypes = {
+  message: MessagePropType
+};

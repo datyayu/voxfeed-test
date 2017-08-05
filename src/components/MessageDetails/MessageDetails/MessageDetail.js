@@ -1,4 +1,5 @@
 import React from "react";
+import { MessagePropType } from "../../../types";
 import { MessageDetailCampaign } from "../MessageDetailsCampaign";
 import { MessageDetailTitle } from "../MessageDetailTitle";
 import { MessageClicks } from "../../MessageClicks";
@@ -23,10 +24,14 @@ export const MessageDetail = ({ message }) => {
 
       <MessageDetailTitle title="Impacto viral" />
       <MessageImpact
-        replies={results.replys}
+        replies={results.replies}
         retweets={results.retweets}
         user={user}
       />
     </div>
   );
+};
+
+MessageDetail.propTypes = {
+  message: MessagePropType
 };

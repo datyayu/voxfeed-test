@@ -1,7 +1,12 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import "./MessageText.css";
 
 export class MessageText extends Component {
+  static propTypes = {
+    content: PropTypes.string.isRequired
+  };
+
   /**
    * Check if a word is a hashtag.
    *

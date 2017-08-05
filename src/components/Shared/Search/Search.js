@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { SearchIcon } from "../../Icons";
 import "./Search.css";
 
 const ENTER_KEY = 13;
 
 export class Search extends Component {
+  static propTypes = {
+    onChange: PropTypes.func,
+    value: PropTypes.string
+  };
+
   handleChange = event => {
     const value = event.target.value;
 

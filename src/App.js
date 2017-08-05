@@ -10,7 +10,7 @@ class App extends Component {
   // Simulate fetching delay.
   async delayedFetch(includeDelay) {
     if (includeDelay) {
-      const delay = Math.random(0, 1) * 5000; // 0 - 5 seconds random delay
+      const delay = Math.random(0, 1) * 1; // 0 - 5 seconds random delay
       await new Promise((resolve, reject) => setTimeout(resolve, delay));
     }
     return fetch("/assets/data.json");

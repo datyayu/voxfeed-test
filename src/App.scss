@@ -4,6 +4,11 @@ body {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
+::-webkit-scrollbar {
+  background: transparent;
+  width: 0;
+}
+
 .app {
   display: flex;
   overflow: hidden;

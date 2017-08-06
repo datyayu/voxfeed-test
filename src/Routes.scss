@@ -14,6 +14,10 @@
 }
 
 @media screen and (min-width: 765px) {
+  .main-content {
+    width: calc(100vw - 100px);
+  }
+
   .main-content.has-mobile-menu {
     transform: translateX(0);
   }

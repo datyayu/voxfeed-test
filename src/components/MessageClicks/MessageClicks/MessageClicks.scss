@@ -3,6 +3,7 @@
 .message-clicks {
   box-sizing: border-box;
   max-width: 100%;
+  position: relative;
 }
 
 .message-clicks__bar {
@@ -27,7 +28,7 @@
   box-sizing: border-box;
   height: 200px;
   margin: 0 auto;
-  position: static;
+  position: relative;
   z-index: 3;
 }
 

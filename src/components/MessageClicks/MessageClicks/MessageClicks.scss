@@ -18,7 +18,7 @@
 .message-clicks__payed {
   animation: grow 1.25s ease-in-out;
   background: $payed-clicks-bar;
-  z-index: 1;
+  z-index: 3;
 }
 
 .message-clicks__total {
